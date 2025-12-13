@@ -21,8 +21,7 @@ form.addEventListener("submit", async function(e) {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
-                // here for new password
-                // here for confirm password
+                newPassword: newPassword
             })
         });
 
@@ -37,3 +36,4 @@ form.addEventListener("submit", async function(e) {
         alert("An error occurred while changing password.");
     }
 });
+
