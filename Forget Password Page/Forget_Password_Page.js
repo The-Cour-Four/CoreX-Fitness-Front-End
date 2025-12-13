@@ -3,10 +3,11 @@ const form = document.querySelector("form");
 form.addEventListener("submit", async function(e) {
     e.preventDefault();
 
+    const email = document.getElementById("email").value.trim();
     const newPassword = document.getElementById("new-password").value.trim();
     const confirmPassword = document.getElementById("confirm-password").value.trim();
-    const email = document.getElementById("email").value.trim();
 
+    
     if (newPassword.length < 6) {
         alert("New password must be at least 6 characters");
         return;
@@ -18,26 +19,28 @@ form.addEventListener("submit", async function(e) {
     }
 
     try {
-        const response = await fetch("https://192.168.1.101:7019/api/Authentication/ChangePassword", {
+        const response = await fetch("https://corex-fitness-backend-btcjekajg6a2a7ex.francecentral-01.azurewebsites.net/api/Authentication/forgotPassword", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
+                email: email,
                 newPassword: newPassword
-                email: email
             })
         });
 
         if (response.ok) {
             alert("Password changed successfully!");
-            window.location.href = "login Page.html"; 
-        } else {
+            window.location.href = "Profile_Page.html";
+        } 
+        
+        else {
             alert("Failed to change password. Please try again.");
         }
-    } catch (error) {
+    } 
+    
+    catch (error) {
         console.error(error);
         alert("An error occurred while changing password.");
     }
+
 });
-
-
-
