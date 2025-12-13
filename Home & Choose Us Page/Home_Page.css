@@ -63,6 +63,11 @@ nav ul li a:hover{
 }
 
 /* Home Section */
+
+html {
+  scroll-behavior: smooth;
+}
+
 .home {
   display: flex;
   align-items: center;
