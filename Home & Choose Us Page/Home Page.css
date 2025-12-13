@@ -62,6 +62,10 @@ nav ul li a:hover{
   color: #3aa7ff;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .home {
   max-width: 50%;
   margin-bottom: 500px;
