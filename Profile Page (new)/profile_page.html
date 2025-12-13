@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> CoreX Fitness Profile </title>
+    <link href="Profile_Page.css" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+            <h1 class="main-title">CoreX Fitness</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#choose-us">Choose Us</a></li>
+                    <li><a href="#">Programs</a></li>
+                    <li><a href="#">BMI Calculator</a></li>
+                </ul>
+            </nav>
+
+            <div class="profile-menu">
+              <button class="profile-button" aria-label="Profile">👤</button>
+              <ul class="dropdown">
+                <li><a href="profile_page.html">My Profile</a></li>
+                <li><a href="#">Programs Progress</a></li>
+                <li><a href="#">Log Out</a></li>
+              </ul>
+            </div>
+
+    </header>
+    <h1 class="my-profile"> My Profile </h1>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <h2 class="update"> Update Your Information </h2>
+    <form id="Profile-form" class="profile-form">
+        
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username" required> <br><br>
+
+            <label for="email">Email (New):</label><br>
+            <input type="email" id="new-email" name="email" required> <br><br>
+            
+            <label for="age">Age:</label><br>
+            <input type="number" id="age" name="age" required> <br><br>
+            
+            <label for="weight">Weight:</label><br>
+            <input type="number" id="weight" name="weight" required> <br><br>
+            
+            <label for="height">Height:</label><br>
+            <input type="number" id="height" name="height" required> <br><br>
+            
+            <label for="email">Email (Current):</label><br>
+            <input type="email" id="email" name="email" required> <br><br>
+            
+            <label for="current-password">Password (Current):</label> <br>
+            <input type="text" id="password" name="password"><br><br>
+
+            <label for="new-password">New Password:</label> <br>
+            <input type="text" id="new-password" name="new-password"><br><br>
+
+            <label for="confirm-password">Confirm Password:</label> <br>
+            <input type="text" id="confirm-password" name="confirm-password"><br><br>
+
+            <input type="submit" value="Update Profile">
+    </form>
+
+    <script src="Profile_Page.js"></script>
+
+  </body>    
+</html>
