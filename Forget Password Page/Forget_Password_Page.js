@@ -22,6 +22,7 @@ form.addEventListener("submit", async function(e) {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
                 newPassword: newPassword
+                email: email
             })
         });
 
@@ -36,4 +37,5 @@ form.addEventListener("submit", async function(e) {
         alert("An error occurred while changing password.");
     }
 });
+
 
