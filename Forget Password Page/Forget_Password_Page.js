@@ -5,6 +5,7 @@ form.addEventListener("submit", async function(e) {
 
     const newPassword = document.getElementById("new-password").value.trim();
     const confirmPassword = document.getElementById("confirm-password").value.trim();
+    const email = document.getElementById("email").value.trim();
 
     if (newPassword.length < 6) {
         alert("New password must be at least 6 characters");
@@ -37,5 +38,6 @@ form.addEventListener("submit", async function(e) {
         alert("An error occurred while changing password.");
     }
 });
+
 
 
