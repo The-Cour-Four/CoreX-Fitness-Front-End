@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> CoreX Fitness Profile </title>
+    <link href="BMI_Calculator_Page.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+            <h1 class="main-title">CoreX Fitness</h1>
+            <nav>
+                <ul>
+                    <li><a href="Home_Page.html">Home</a></li>
+                    <li><a href="#choose-us">Choose Us</a></li>
+                    <li><a href="Training_Diet_Page.html">Programs</a></li>
+                    <li><a href="BMI_Calculator_Page.html">BMI Calculator</a></li>
+                </ul>
+            </nav>
+            <button class="profile-button" aria-label="Go to Profile">👤</button>
+    </header>
+
+    <h1 class="bmi-calculator"> BMI Calculator </h1>
+
+    <form id="bmi" class="bmi">
+        
+        <div class="bmi-form">
+            <h2 class="bmi-calc"> Calculator </h2>
+            <label for="age">Age:</label><br>
+            <input type="number" id="age" name="age" required> <br><br>
+
+            <label for="weight">Weight:</label><br>
+            <input type="number" id="weight" name="weight" required> <br><br>
+
+            <label for="height">Height:</label><br>
+            <input type="number" id="height" name="height" required> <br><br>
+
+            <input type="submit" value="Calculate" onclick="return calculator(event)">
+        </div>
+
+        <div class="bmi-result">
+            <h2 class="bmi-result-title"> BMI </h2>
+            <p id="bmi-output" class="bmi-output"></p>
+        </div>
+
+        <div class="bmi-chart">
+            <img src="BMI Chart.jpg" alt="BMI Chart" >
+        </div>
+    </form>
+
+    <script src="BMI_Calculator_Page.js"></script>
+
+</body>
+</html>
