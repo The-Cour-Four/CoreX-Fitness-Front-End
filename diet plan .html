@@ -5,6 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>30-Day Nutrition Plan</title>
     <style>
+
+        .profile-button{
+            font-size: 30px;
+            background-color: #ffffff;
+            color: #3aa7ff;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .profile-button:hover {
+            background-color: #3aa7ff;
+        }
+
+
+        body{
+            font-family: 'Poppins', sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            min-height: 100vh;
+        }
+
+        header{
+            color: #3aa7ff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 40px;
+            background-color: #1e1e1e; 
+            border-radius: 8px;
+            margin: 20px auto;
+            margin-bottom: 50px;
+            max-width: 2000px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 20px;
+            margin-left: 40px;
+            opacity: 0.7;
+            transition: opacity 0.3s, color 0.3s;
+        }
+        nav ul li a:hover{
+            opacity: 1;
+            color: #3aa7ff;
+        }
+
+
+
         /* --- 1. CORE STYLES --- */
         :root {
             /* CHANGED: All primary accents are now your specific Blue */
@@ -164,9 +225,23 @@
             display: block;
             transition: opacity 0.3s ease;
         }
+        
     </style>
 </head>
 <body>
+
+    <header>
+            <h1 class="main-title">CoreX Fitness</h1>
+            <nav>
+                <ul>
+                    <li><a href="Home_Page.html">Home</a></li>
+                    <li><a href="#choose-us">Choose Us</a></li>
+                    <li><a href="Training_Diet_Page.html">Programs</a></li>
+                    <li><a href="BMI_Calculator_Page.html">BMI Calculator</a></li>
+                </ul>
+            </nav>
+            <button class="profile-button" aria-label="Go to Profile">👤</button>
+    </header>
 
     <div class="control-bar">
         <div>
@@ -290,4 +365,5 @@
         });
     </script>
 </body>
+
 </html>
