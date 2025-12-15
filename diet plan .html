@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>30-Day Nutrition Plan</title>
+    <style>
+        /* --- 1. CORE STYLES --- */
+        :root {
+            /* CHANGED: All primary accents are now your specific Blue */
+            --primary: #3aa7ff; 
+            --dark: #121212;
+            --light: #f4f4f4;
+            --card-bg: #1e1e1e;
+            --bar-bg: #2d2d2d;
+        }
+
+        body { 
+            background-color: var(--dark); 
+            color: var(--light); 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 0; 
+            padding: 20px; 
+        }
+
+        /* --- 2. CONTROL BAR (HEADER) --- */
+        .control-bar {
+            background-color: var(--bar-bg);
+            padding: 20px;
+            border-radius: 12px;
+            border-bottom: 4px solid var(--primary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .control-bar h1 {
+            margin: 0;
+            font-size: 1.8rem;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .control-bar p { margin: 5px 0 0 0; color: #bbb; font-size: 0.9rem; }
+
+        /* DROPDOWN STYLE */
+        .select-container { position: relative; }
+
+        select {
+            padding: 12px 40px 12px 20px;
+            font-size: 1rem;
+            border-radius: 25px;
+            border: 2px solid var(--primary);
+            background: #000;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+            appearance: none; 
+            outline: none;
+            min-width: 200px;
+        }
+
+        /* Custom Arrow */
+        .select-container::after {
+            content: '▼';
+            font-size: 0.8rem;
+            color: var(--primary);
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+        }
+
+        /* --- 3. MAIN LAYOUT --- */
+        .plan-container { 
+            display: flex; 
+            gap: 20px; 
+            flex-wrap: wrap; 
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* LEFT: DAY LIST */
+        .day-selector { 
+            flex: 1; 
+            min-width: 280px; 
+            background: var(--card-bg); 
+            padding: 15px; 
+            border-radius: 12px; 
+            height: 600px; 
+            overflow-y: auto; 
+            border: 1px solid #333;
+        }
+
+        .day-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 8px;
+            background: #2a2a2a;
+            border: none;
+            color: white;
+            text-align: left;
+            cursor: pointer;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        
+        .day-btn:hover { background: #333; padding-left: 20px; }
+        
+        .day-btn.active-day { 
+            background: var(--primary); 
+            color: black; /* Text becomes black on blue background */
+            font-weight: bold; 
+            box-shadow: 0 0 15px rgba(58, 167, 255, 0.4); /* Blue glow */
+        }
+
+        /* RIGHT: CONTENT DISPLAY */
+        .day-display {
+            flex: 2;
+            min-width: 300px;
+            background: #181818;
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid #333;
+            height: 600px;
+            overflow-y: auto;
+        }
+
+        .tag { 
+            display: inline-block; 
+            background: var(--primary); 
+            color: black; 
+            padding: 5px 12px; 
+            font-size: 0.8rem; 
+            border-radius: 4px; 
+            margin-bottom: 15px; 
+            font-weight: 800; 
+            text-transform: uppercase;
+        }
+
+        h2 { margin-top: 0; font-size: 2.2rem; margin-bottom: 10px; color: white;}
+        p.desc { color: #ccc; font-size: 1.1rem; line-height: 1.6; }
+
+        /* IMAGE BOX */
+        .meal-image {
+            width: 100%;
+            height: 350px;
+            object-fit: cover; 
+            border-radius: 10px;
+            margin-top: 20px;
+            border: 1px solid #333;
+            background-color: #000;
+            display: block;
+            transition: opacity 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="control-bar">
+        <div>
+            <h1>Nutrition Master</h1>
+            <p>Select your goal to switch the entire 30-day plan.</p>
+        </div>
+        
+        <div class="select-container">
+            <select id="plan-type" onchange="updatePlanMode()">
+                <option value="cutting">Cutting (Fat Loss)</option>
+                <option value="bulking">Bulking (Muscle Gain)</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="plan-container">
+        <div class="day-selector" id="day-list"></div>
+
+        <div class="day-display">
+            <span class="tag" id="plan-tag">CUTTING PLAN</span>
+            <h2 id="meal-name">Loading...</h2>
+            <p class="desc" id="meal-desc">Select a day to view details.</p>
+            
+            <img id="meal-img" src="" alt="Meal Preview" class="meal-image">
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // --- DATA: IMAGE LINKS ---
+            const images = {
+                cutting: {
+                    salmon: "https://images.pexels.com/photos/3763847/pexels-photo-3763847.jpeg?auto=compress&cs=tinysrgb&w=800",
+                    salad:  "https://images.pexels.com/photos/1059905/pexels-photo-1059905.jpeg?auto=compress&cs=tinysrgb&w=800",
+                    chicken:"https://images.pexels.com/photos/106343/pexels-photo-106343.jpeg?auto=compress&cs=tinysrgb&w=800"
+                },
+                bulking: {
+                    steak:  "https://images.pexels.com/photos/65175/pexels-photo-65175.jpeg?auto=compress&cs=tinysrgb&w=800",
+                    pasta:  "https://images.pexels.com/photos/1487511/pexels-photo-1487511.jpeg?auto=compress&cs=tinysrgb&w=800",
+                    oats:   "https://images.pexels.com/photos/90893/pexels-photo-90893.jpeg?auto=compress&cs=tinysrgb&w=800"
+                }
+            };
+
+            const dayList = document.getElementById('day-list');
+            const mealName = document.getElementById('meal-name');
+            const mealDesc = document.getElementById('meal-desc');
+            const mealImg = document.getElementById('meal-img');
+            const planTag = document.getElementById('plan-tag');
+            const planSelector = document.getElementById('plan-type');
+
+            let planData = [];
+
+            // --- FUNCTION: Generate Data ---
+            window.updatePlanMode = function() {
+                dayList.innerHTML = '';
+                planData = [];
+                const mode = planSelector.value; 
+                
+                // Update Tag Text (Color is handled by CSS class .tag now)
+                planTag.innerText = mode === 'cutting' ? "FAT LOSS MENU" : "MUSCLE GAIN MENU";
+                
+                // Note: I removed the JS color override so it stays Blue (#3aa7ff)
+
+                for(let i = 1; i <= 30; i++) {
+                    let mName, mDesc, mSrc;
+
+                    if (mode === 'cutting') {
+                        if(i % 4 === 0) {
+                            mName = "Grilled Salmon"; mDesc = "Salmon fillet with asparagus and lemon."; mSrc = images.cutting.salmon;
+                        } else if (i % 2 === 0) {
+                            mName = "Green Power Bowl"; mDesc = "Spinach, Kale, Tuna, and low-cal dressing."; mSrc = images.cutting.salad;
+                        } else {
+                            mName = "Lean Chicken"; mDesc = "Grilled chicken breast with broccoli."; mSrc = images.cutting.chicken;
+                        }
+                    } else {
+                        if(i % 4 === 0) {
+                            mName = "Ribeye Steak"; mDesc = "12oz Steak with mashed potatoes."; mSrc = images.bulking.steak;
+                        } else if (i % 2 === 0) {
+                            mName = "Heavy Cream Pasta"; mDesc = "Carbonara with extra cheese and bacon."; mSrc = images.bulking.pasta;
+                        } else {
+                            mName = "Loaded Oats"; mDesc = "Oats, peanut butter, banana, whey protein."; mSrc = images.bulking.oats;
+                        }
+                    }
+
+                    planData.push({ day: i, name: mName, desc: mDesc, src: mSrc });
+                }
+
+                // Render Buttons
+                planData.forEach((data, index) => {
+                    const btn = document.createElement('button');
+                    btn.innerText = `Day ${data.day}`;
+                    btn.className = 'day-btn';
+                    btn.onclick = () => loadDay(index);
+                    dayList.appendChild(btn);
+                });
+
+                // Load first day
+                loadDay(0);
+            };
+
+            // --- FUNCTION: Load Specific Day ---
+            function loadDay(index) {
+                const data = planData[index];
+                
+                mealName.innerText = data.name;
+                mealDesc.innerText = data.desc;
+                
+                mealImg.style.opacity = 0;
+                setTimeout(() => {
+                    mealImg.src = data.src;
+                    mealImg.style.opacity = 1;
+                }, 150);
+
+                const allBtns = document.querySelectorAll('.day-btn');
+                allBtns.forEach(b => b.classList.remove('active-day'));
+                if(allBtns[index]) allBtns[index].classList.add('active-day');
+            }
+
+            updatePlanMode();
+        });
+    </script>
+</body>
+</html>
