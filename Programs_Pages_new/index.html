@@ -256,7 +256,7 @@
                     // Ensure 'type' here matches the button onclick argument above
                     { id: 1, type: "training", imgSrc: "index.avif", title: "GYM", desc: "Master the iron. Utilize professional equipment and free weights.", tag: "Advanced" },
                     { id: 2, type: "training", imgSrc: "index.jpg", title: "Body Weight", desc: "No equipment, no limits. Build functional strength anywhere.", tag: "Beginner" },
-                    { id: 4, type: "diet", imgSrc: "index food.webp", title: "Diet", desc: "Reveal your hard work. Shred body fat while preserving muscle.", tag: "Intermediate" }
+                    { id: 4, type: "diet", imgSrc: "index.webp", title: "Diet", desc: "Reveal your hard work. Shred body fat while preserving muscle.", tag: "Intermediate" }
                 ]
             },
             
@@ -305,7 +305,7 @@
                     card.className = 'card';
                     card.innerHTML = `
                         <div class="card-img">
-                            <img src="${item.imgSrc}" alt="${item.title}" loading="lazy">
+                            <img src="index.jpg" alt="index.jpg" loading="lazy">
                         </div>
                         <div class="card-body">
                             <span class="tag">${item.tag}</span>
