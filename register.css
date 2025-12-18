@@ -1,80 +1,102 @@
 /* --- Global Styles --- */
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    
-    /* --- Background Image Settings --- */
-    background-image: url("cover page.avif"); /* Path to your cover image */
-    background-size: cover;          /* Cover the entire page */
-    background-position: center;     /* Center the image */
-    background-repeat: no-repeat;    /* Do not repeat the image */
-    background-attachment: fixed;    /* Image stays fixed when scrolling */
-    /* --- End Background Settings --- */
-    
-    background-color: #4630d5; /* Fallback color if image fails */
-    color: #ffffff; /* White text */
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-color: #1a1a1a; /* Dark background behind everything */
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    margin: 0;
-    padding: 2rem 0; /* Add padding for long forms on small screens */
 }
 
-/* --- Heading --- */
+/* --- Main Container (The Box) --- */
+.split-screen-container {
+    display: flex;
+    width: 900px;         /* Fixed width for nice desktop view */
+    max-width: 95%;       /* Responsive for smaller screens */
+    height: 650px;        /* Fixed height */
+    background-color: #121822; /* Your dark blue color */
+    border-radius: 15px;
+    overflow: hidden;     /* Keeps the image corners rounded */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* --- Left Side (Image) --- */
+.image-side {
+    width: 50%;
+    position: relative;
+}
+
+.image-side img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+
+/* --- Right Side (Form) --- */
+.form-side {
+    width: 50%;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers form vertically */
+    align-items: center;     /* Centers form horizontally */
+    overflow-y: auto;        /* Allows scrolling if screen is too short */
+}
+
+/* --- Typography --- */
 h1 {
     font-family: "Montserrat", sans-serif;
     font-style: italic;
-    font-size: 3.8rem; /* decreased a bit */
+    font-size: 2.5rem;
     color: #73a9f4;
-    margin-bottom: 1.5rem;
+    margin-bottom: 20px;
     text-align: center;
 }
 
-
-
-/* --- Form Container --- */
+/* --- Form Elements --- */
 form {
-    background-color: #121822; /* Dark blue box */
-    padding: 2.5rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
     width: 100%;
-    max-width: 400px;
-    box-sizing: border-box;
+    background: transparent; /* Remove individual box background */
+    padding: 0;
+    box-shadow: none;        /* Remove shadow inside the container */
 }
 
-/* --- Labels --- */
 label {
     display: block;
     font-size: 0.9rem;
     font-weight: bold;
     color: #cfd8e3;
-    margin-bottom: 8px;
+    margin-bottom: 5px;
+    margin-top: 10px;
 }
 
-/* --- Input Fields (Text, Email, Password, AND Number) --- */
 input[type="text"],
 input[type="email"],
 input[type="password"],
 input[type="number"] {
     width: 100%;
-    padding: 12px;
+    padding: 10px;
     border: 1px solid #2d3a4b;
     border-radius: 5px;
     background-color: #1c2433;
     color: #ffffff;
     box-sizing: border-box;
-    /* Note: Your inline HTML style="width: 60px;" 
-       will override "width: 100%" for the number fields. */
 }
 
-/* Placeholder */
-input::placeholder {
-    color: #778da9;
+/* --- Stats Row (Weight, Height, Age) --- */
+.stats-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
 }
 
-/* --- Register Button --- */
+.stats-row div {
+    flex: 1; /* Makes them equal width */
+}
+
+/* --- Buttons & Links --- */
 input[type="submit"] {
     width: 100%;
     padding: 12px;
@@ -85,31 +107,36 @@ input[type="submit"] {
     font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
+    margin-top: 25px;
     transition: background-color 0.3s ease;
-    margin-top: 1rem; /* Add some space before the button */
 }
 
-/* Hover */
 input[type="submit"]:hover {
     background-color: #1e90ff;
 }
 
-/* --- Bottom Links --- */
 a {
     color: #3aa7ff;
     text-decoration: none;
     font-size: 0.9rem;
-    margin-top: 1.5rem; /* Give link some space from form */
-    display: inline-block; /* Allows margin-top to work */
-    
-    /* Add a subtle background to make it readable over the image */
-    background-color: rgba(12, 20, 18, 0.6); /* Dark, semi-transparent */
-    padding: 6px 10px;
-    border-radius: 4px;
+    margin-top: 20px;
 }
 
 a:hover {
     text-decoration: underline;
-    background-color: rgba(18, 24, 34, 0.8); /* Darker on hover */
 }
-/* This is the Registration Page by css  */
+
+/* --- Mobile Fix (Stack them on phones) --- */
+@media (max-width: 768px) {
+    .split-screen-container {
+        flex-direction: column; /* Stack image on top of form */
+        height: auto;
+    }
+    .image-side, .form-side {
+        width: 100%;
+        height: 200px; /* Short image for mobile */
+    }
+    .form-side {
+        height: auto;
+    }
+}
