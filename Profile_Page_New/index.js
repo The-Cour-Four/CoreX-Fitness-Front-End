@@ -34,7 +34,7 @@ form.addEventListener("submit", async function (e) {
     }
 
     try{
-        const response = await fetch("https://127.0.0.1:7019/api/Authentication/PasswordChecker", {
+        const response = await fetch("https://corex-fitness-backend-btcjekajg6a2a7ex.francecentral-01.azurewebsites.net/api/Authentication/PasswordChecker", {
             method: "POST",
             headers: {"Content-Type":"application/json"},
             body:JSON.stringify({
@@ -54,7 +54,7 @@ form.addEventListener("submit", async function (e) {
     }
 
     try{
-        const response = await fetch("https://127.0.0.1:7019/api/Authentication/updateUserInformation", {
+        const response = await fetch("https://corex-fitness-backend-btcjekajg6a2a7ex.francecentral-01.azurewebsites.net/api/Authentication/updateUserInformation", {
             method: "POST",
             headers: {"Content-Type":"application/json"},
             body: JSON.stringify({
