@@ -42,7 +42,7 @@ form.addEventListener("submit", async function(e) {
         if(respone.ok){
             // if all good:
             alert("Login Successful");
-            window.location.href = "profile_page.html"
+            window.location.href = "Profile_Page_New/index.html"
         }else{
             alert("Invalid username or password! ");
         }
