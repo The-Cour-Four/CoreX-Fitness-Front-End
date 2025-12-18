@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Core X Fitness - Systems</title>
+    <style>
+        /* --- 0. Header --- */
+
+        .profile-button{
+            font-size: 30px;
+            background-color: #ffffff;
+            color: #3aa7ff;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .profile-button:hover {
+            background-color: #3aa7ff;
+        }
+
+
+        header{
+            color: #3aa7ff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 40px;
+            background-color: #1e1e1e; 
+            border-radius: 8px;
+            margin: 20px auto;
+            margin-bottom: 50px;
+            max-width: 2000px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 20px;
+            margin-left: 40px;
+            opacity: 0.7;
+            transition: opacity 0.3s, color 0.3s;
+        }
+        nav ul li a:hover{
+            opacity: 1;
+            color: #3aa7ff;
+        }
+
+
+        /* --- 1. CORE STYLES --- */
+        :root {
+            --primary: #3aa7ff; /* Neon Blue */
+            --dark-bg: #111111;
+            --card-bg: #1e1e1e;
+            --text-main: #ffffff;
+            --text-sub: #aaaaaa;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
+        
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-main);
+            transition: all 0.3s ease;
+        }
+
+        /* --- 2. LAYOUT --- */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background: rgba(30, 30, 30, 0.8);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #333;
+        }
+
+        .brand {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            color: var(--text-main);
+        }
+        .brand span { color: var(--primary); }
+
+        .controls select {
+            padding: 8px 15px;
+            background: #000;
+            color: #fff;
+            border: 1px solid #444;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .header-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .header-section h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        .header-section p { color: var(--text-sub); }
+
+        /* --- 3. FILTER BUTTONS --- */
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 1px solid var(--text-sub);
+            color: var(--text-sub);
+            padding: 8px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            border-color: var(--primary);
+            background: var(--primary);
+            color: #000;
+            font-weight: bold;
+        }
+
+        /* --- 4. CARDS GRID --- */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .card:hover { transform: translateY(-5px); }
+
+        /* UPDATED IMAGE STYLES */
+        .card-img {
+            height: 200px; 
+            width: 100%;
+            background: #333;
+            overflow: hidden;
+        }
+
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover .card-img img {
+            transform: scale(1.1);
+        }
+
+        .card-body { padding: 20px; }
+        
+        .tag {
+            background: rgba(58, 167, 255, 0.15); 
+            color: var(--primary);
+            padding: 4px 10px;
+            font-size: 0.8rem;
+            border-radius: 5px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .card-title { font-size: 1.4rem; margin-bottom: 8px; }
+        .card-desc { color: var(--text-sub); font-size: 0.9rem; line-height: 1.5; margin-bottom: 20px; }
+
+        .btn-select {
+            width: 100%;
+            padding: 12px;
+            background: var(--text-main);
+            color: #000;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+        .btn-select:hover { background: var(--primary); }
+
+        /* --- 5. RTL SUPPORT (ARABIC) --- */
+        body[dir="rtl"] { direction: rtl; text-align: right; }
+        body[dir="rtl"] .tag { float: right; margin-left: 10px; }
+    </style>
+</head>
+<body>
+
+    <header>
+      <h1 class="main-title">CoreX Fitness</h1>
+      <nav>
+        <ul>
+          <li><a href="Home_Page.html">Home</a></li>
+          <li><a href="#choose-us">Choose Us</a></li>
+          <li><a href="Training_Diet_Page.html">Programs</a></li>
+          <li><a href="BMI_Calculator_Page.html">BMI Calculator</a></li>
+        </ul>
+      </nav>
+      <button class="profile-button" aria-label="Go to Profile">👤</button>
+    </header>
+
+    <div class="container">
+        <div class="header-section">
+            <h1 id="pageTitle">Choose Your System</h1>
+            <p id="pageSub">Select the program that fits your goals perfectly.</p>
+        </div>
+
+        <div class="filters">
+            <button class="filter-btn active" onclick="filterSelection('all')" id="btnAll">All</button>
+            <button class="filter-btn" onclick="filterSelection('training')" id="btnTraining">Training</button>
+            <button class="filter-btn" onclick="filterSelection('diet')" id="btnDiet">Diet</button>
+        </div>
+
+        <div class="grid" id="programsGrid">
+        </div>
+    </div>
+
+    <script>
+        // --- DATA ---
+        const content = {
+            en: {
+                title: "Choose Your System",
+                sub: "Select the program that fits your goals perfectly.",
+                all: "All", training: "Training", diet: "Diet",
+                btn: "Select Program",
+                items: [
+                    // Ensure 'type' here matches the button onclick argument above
+                    { id: 1, type: "training", imgSrc: "Image 1.avif", title: "GYM", desc: "Master the iron. Utilize professional equipment and free weights.", tag: "Advanced" },
+                    { id: 2, type: "training", imgSrc: "iamge 3.jpg", title: "Body Weight", desc: "No equipment, no limits. Build functional strength anywhere.", tag: "Beginner" },
+                    { id: 4, type: "diet", imgSrc: "image 4 food.webp", title: "Diet", desc: "Reveal your hard work. Shred body fat while preserving muscle.", tag: "Intermediate" }
+                ]
+            },
+            
+        };
+
+        let currentLang = 'en';
+
+        // --- FUNCTIONS ---
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            
+            // 1. Set Direction
+            document.body.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+
+            // 2. Update Static Text
+            document.getElementById('pageTitle').innerText = content[lang].title;
+            document.getElementById('pageSub').innerText = content[lang].sub;
+            document.getElementById('btnAll').innerText = content[lang].all;
+            document.getElementById('btnTraining').innerText = content[lang].training;
+            document.getElementById('btnDiet').innerText = content[lang].diet;
+
+            // 3. Re-render Grid based on currently active button
+            const activeBtn = document.querySelector('.filter-btn.active');
+            
+            let currentFilter = 'all'; // Default
+            
+            // Check which button is active to keep the filter when switching language
+            if (activeBtn.id === 'btnTraining') currentFilter = 'training';
+            if (activeBtn.id === 'btnDiet') currentFilter = 'diet';
+
+            renderGrid(currentFilter);
+        }
+
+        function renderGrid(filter) {
+            const grid = document.getElementById('programsGrid');
+            grid.innerHTML = ''; // Clear
+
+            const data = content[currentLang].items;
+            const btnText = content[currentLang].btn;
+
+            data.forEach(item => {
+                // Logic: Show item if filter is 'all' OR if item type matches the filter
+                if (filter === 'all' || item.type === filter) {
+                    const card = document.createElement('div');
+                    card.className = 'card';
+                    card.innerHTML = `
+                        <div class="card-img">
+                            <img src="${item.imgSrc}" alt="${item.title}" loading="lazy">
+                        </div>
+                        <div class="card-body">
+                            <span class="tag">${item.tag}</span>
+                            <h3 class="card-title">${item.title}</h3>
+                            <p class="card-desc">${item.desc}</p>
+                            <button class="btn-select">${btnText}</button>
+                        </div>
+                    `;
+                    grid.appendChild(card);
+                }
+            });
+        }
+
+        function filterSelection(type) {
+            // 1. Remove 'active' class from all buttons
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            
+            // 2. Add 'active' class to the button that was clicked
+            event.target.classList.add('active');
+            
+            // 3. Render the grid with the new filter
+            renderGrid(type);
+        }
+
+        // Initialize with 'all'
+        renderGrid('all');
+
+    </script>
+</body>
+</html>
