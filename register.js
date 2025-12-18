@@ -65,7 +65,7 @@ form.addEventListener("submit", async function(e) {
         console.log("test2");
         if(respone.ok){
             alert("Registeration success! ");
-            window.location.href = "login Page.html"
+            window.location.href = "index.html"
         }else{
             alert("Invalid credentials! ");
         }
