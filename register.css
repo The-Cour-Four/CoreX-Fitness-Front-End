@@ -47,6 +47,7 @@ h1 {
 .image-section {
     flex: 1;
     min-width: 0;
+    max-width: 50%;
 }
 
 .image-section img {
@@ -58,12 +59,13 @@ h1 {
 
 /* --- Form Container --- */
 form {
+    flex: 1;
     background-color: #121822; /* Dark blue box */
     padding: 2.5rem;
     border-radius: 0 10px 10px 0; /* Rounded only on the right side */
     box-shadow: none;
     width: 100%;
-    max-width: 400px;
+    max-width: 50%;
     box-sizing: border-box;
 }
 
@@ -144,10 +146,12 @@ a:hover {
     }
     
     .image-section {
+        max-width: 100%;
         max-height: 200px;
     }
     
     form {
+        max-width: 100%;
         border-radius: 0 0 10px 10px;
     }
 }
