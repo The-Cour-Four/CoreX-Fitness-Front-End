@@ -34,10 +34,12 @@ h1 {
 /* --- Register Container (Image + Form) --- */
 .register-container {
     display: flex;
+    flex-direction: row;
     align-items: stretch;
     gap: 0;
     max-width: 900px;
     width: 90%;
+    height: auto;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
@@ -45,9 +47,10 @@ h1 {
 
 /* --- Image Section --- */
 .image-section {
-    flex: 1;
+    flex: 0 0 50%;
     min-width: 0;
     max-width: 50%;
+    overflow: hidden;
 }
 
 .image-section img {
@@ -59,13 +62,11 @@ h1 {
 
 /* --- Form Container --- */
 form {
-    flex: 1;
+    flex: 0 0 50%;
     background-color: #121822; /* Dark blue box */
     padding: 2.5rem;
     border-radius: 0 10px 10px 0; /* Rounded only on the right side */
     box-shadow: none;
-    width: 100%;
-    max-width: 50%;
     box-sizing: border-box;
 }
 
@@ -146,12 +147,13 @@ a:hover {
     }
     
     .image-section {
+        flex: 0 0 auto;
         max-width: 100%;
         max-height: 200px;
     }
     
     form {
-        max-width: 100%;
+        flex: 0 0 auto;
         border-radius: 0 0 10px 10px;
     }
 }
