@@ -8,7 +8,11 @@
 
 <body>
     <h1>Register Now !</h1>
-    <form action="/register" method="post">
+    <div class="register-container">
+        <div class="image-section">
+            <img src="Registrartion_Photo.jpg" alt="Registration Photo">
+        </div>
+        <form action="/register" method="post">
         <label for="username">Enter your Username</label>
         <input type="text" id="username" name="username" required><br><br>
         
@@ -29,6 +33,7 @@
         
         <input type="submit" value="Register">
     </form>
+    </div>
     <br><a href="index.html"> Already have an account ? </a>
     
     <script src="register.js"></script>
