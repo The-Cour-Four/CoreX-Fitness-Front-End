@@ -10,7 +10,7 @@ body {
     background-attachment: fixed;    /* Image stays fixed when scrolling */
     /* --- End Background Settings --- */
     
-    background-color: #4630d5; /* Fallback color if image fails */
+    background-color: #1a1a2e; /* Dark navy blue - easy on eyes */
     color: #ffffff; /* White text */
     display: flex;
     flex-direction: column;
@@ -31,14 +31,37 @@ h1 {
     text-align: center;
 }
 
+/* --- Register Container (Image + Form) --- */
+.register-container {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    max-width: 900px;
+    width: 90%;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
 
+/* --- Image Section --- */
+.image-section {
+    flex: 1;
+    min-width: 0;
+}
+
+.image-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
 
 /* --- Form Container --- */
 form {
     background-color: #121822; /* Dark blue box */
     padding: 2.5rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    border-radius: 0 10px 10px 0; /* Rounded only on the right side */
+    box-shadow: none;
     width: 100%;
     max-width: 400px;
     box-sizing: border-box;
@@ -111,5 +134,21 @@ a {
 a:hover {
     text-decoration: underline;
     background-color: rgba(18, 24, 34, 0.8); /* Darker on hover */
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    .register-container {
+        flex-direction: column;
+        max-width: 400px;
+    }
+    
+    .image-section {
+        max-height: 200px;
+    }
+    
+    form {
+        border-radius: 0 0 10px 10px;
+    }
 }
 /* This is the Registration Page by css  */
