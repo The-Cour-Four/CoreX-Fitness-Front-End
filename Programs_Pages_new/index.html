@@ -219,10 +219,10 @@
       <h1 class="main-title">CoreX Fitness</h1>
       <nav>
         <ul>
-          <li><a href="Home_Page.html">Home</a></li>
-          <li><a href="#choose-us">Choose Us</a></li>
-          <li><a href="Training_Diet_Page.html">Programs</a></li>
-          <li><a href="BMI_Calculator_Page.html">BMI Calculator</a></li>
+          <li><a href="../Home_and_Choose_Us_Page/index.html">Home</a></li>
+          <li><a href="../Home_and_Choose_Us_Page/index.html#choose-us">Choose Us</a></li>
+          <li><a href="../Programs_Pages_new/index.html">Programs</a></li>
+          <li><a href="../BMI_Calculator_Page/BMI_Calculator_Page.html">BMI Calculator</a></li>
         </ul>
       </nav>
       <button class="profile-button" aria-label="Go to Profile">👤</button>
@@ -305,13 +305,13 @@
                     card.className = 'card';
                     card.innerHTML = `
                         <div class="card-img">
-                            <img src="index.jpg" alt="index.jpg" loading="lazy">
+                            <img src="index.avif" alt="index.avif" loading="lazy">
                         </div>
                         <div class="card-body">
                             <span class="tag">${item.tag}</span>
                             <h3 class="card-title">${item.title}</h3>
                             <p class="card-desc">${item.desc}</p>
-                            <button class="btn-select">${btnText}</button>
+                            <button class="btn-select" onclick="window.location.href='../diet_plan .html'">${btnText}</button>
                         </div>
                     `;
                     grid.appendChild(card);
