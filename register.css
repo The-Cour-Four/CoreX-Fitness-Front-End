@@ -32,33 +32,13 @@ h1 {
 }
 
 /* --- Register Container (Image + Form) --- */
-.register-container {
 form {
-    flex: 0 0 50%;
-    background-color: #121822; /* Dark blue box */
-    padding: 2.5rem;
-    border-radius: 0 10px 10px 0; /* Rounded only on the right side */
-    box-shadow: none;
+    flex: 1;
+    background-color: #121822; /* Your dark theme color */
+    padding: 3.5rem; /* More padding for a spacious look */
+    border-radius: 12px;
     box-sizing: border-box;
-
-}
-
-/* --- Image Section --- */
-
-
-/* --- Form Container --- */
-.register-container {
-    display: flex;
-    flex-direction: row;
-    align-items: stretch;
-    gap: 0;
-    max-width: 900px;
-    width: 90%;
-    height: auto;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-
+    width: 100%;
 }
 
 /* --- Labels --- */
@@ -71,19 +51,32 @@ label {
 }
 
 /* --- Input Fields (Text, Email, Password, AND Number) --- */
+/* --- Larger Input Fields --- */
 input[type="text"],
 input[type="email"],
 input[type="password"],
 input[type="number"] {
-    width: 100%;
-    padding: 12px;
+    width: 100% !important; /* Force all inputs to be full width */
+    padding: 15px; /* Thicker inputs */
+    font-size: 1.1rem; /* Larger text */
+    margin-bottom: 20px; /* More space between fields */
     border: 1px solid #2d3a4b;
-    border-radius: 5px;
+    border-radius: 8px;
     background-color: #1c2433;
     color: #ffffff;
     box-sizing: border-box;
-    /* Note: Your inline HTML style="width: 60px;" 
-       will override "width: 100%" for the number fields. */
+}
+
+/* --- Larger Register Button --- */
+input[type="submit"] {
+    width: 100%;
+    padding: 16px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background-color: #3aa7ff;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
 }
 
 /* Placeholder */
