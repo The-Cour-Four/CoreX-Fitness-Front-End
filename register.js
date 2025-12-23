@@ -54,7 +54,7 @@ form.addEventListener("submit", async function(e) {
             method:"POST",
             headers: {"Content-Type":"application/json"},
             body: JSON.stringify({
-                username:username,
+                userName:username,
                 email:email,
                 password:password,
                 weight:weight,
@@ -65,7 +65,7 @@ form.addEventListener("submit", async function(e) {
         console.log("test2");
         if(respone.ok){
             alert("Registeration success! ");
-            window.location.href = "index.html"
+            window.location.href = "login Page.html"
         }else{
             alert("Invalid credentials! ");
         }
@@ -73,4 +73,3 @@ form.addEventListener("submit", async function(e) {
             console.log(error);
         }
 });
-// THIS FOR THE COMMIT MESASAGE
