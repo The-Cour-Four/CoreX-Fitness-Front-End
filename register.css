@@ -33,12 +33,14 @@ h1 {
 
 /* --- Register Container (Image + Form) --- */
 .register-container {
-    form {
-    flex: 1 1 100%;          /* Takes up the full width of the container */
-    background-color: #121822;
+form {
+    flex: 0 0 50%;
+    background-color: #121822; /* Dark blue box */
     padding: 2.5rem;
-    border-radius: 10px;    /* Rounded on all sides now */
+    border-radius: 0 10px 10px 0; /* Rounded only on the right side */
+    box-shadow: none;
     box-sizing: border-box;
+
 }
 
 /* --- Image Section --- */
