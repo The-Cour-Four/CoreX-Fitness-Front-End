@@ -33,14 +33,12 @@ h1 {
 
 /* --- Register Container (Image + Form) --- */
 .register-container {
-    display: flex;
-    justify-content: center; /* Centers the form inside the container */
-    max-width: 450px;       /* Reduced from 900px to fit a single column */
-    width: 90%;
-    margin: 0 auto;         /* Ensures the container itself is centered on the page */
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    form {
+    flex: 1 1 100%;          /* Takes up the full width of the container */
+    background-color: #121822;
+    padding: 2.5rem;
+    border-radius: 10px;    /* Rounded on all sides now */
+    box-sizing: border-box;
 }
 
 /* --- Image Section --- */
