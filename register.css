@@ -1,114 +1,140 @@
 /* --- Global Styles --- */
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
     
-    /* --- Background Image Settings --- */
-    background-image: url("cover page.avif"); /* Path to your cover image */
-    background-size: cover;          /* Cover the entire page */
-    background-position: center;     /* Center the image */
-    background-repeat: no-repeat;    /* Do not repeat the image */
-    background-attachment: fixed;    /* Image stays fixed when scrolling */
-    /* --- End Background Settings --- */
+    /* Background Image Settings */
+    background-image: url("cover page.avif");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     
-    background-color: #4630d5; /* Fallback color if image fails */
-    color: #ffffff; /* White text */
+    background-color: #1a1a2e;
+    color: #ffffff;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    padding: 2rem 0; /* Add padding for long forms on small screens */
+    padding: 2rem 0;
 }
 
-/* --- Heading --- */
+/* --- Improved Heading --- */
 h1 {
     font-family: "Montserrat", sans-serif;
+    font-weight: 800;
     font-style: italic;
-    font-size: 3.8rem; /* decreased a bit */
+    font-size: 3.5rem;
     color: #73a9f4;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     text-align: center;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    text-shadow: 2px 4px 15px rgba(0, 0, 0, 0.4);
 }
 
+/* --- Centered Form Container --- */
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 500px; /* Wider for better text presentation */
+    width: 90%;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
 
-
-/* --- Form Container --- */
+/* --- The Black Box (Form) --- */
 form {
-    background-color: #121822; /* Dark blue box */
-    padding: 2.5rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-    width: 100%;
-    max-width: 400px;
+    flex: 1;
+    background-color: #121822; /* Deep dark blue/black */
+    padding: 3rem;
+    border-radius: 12px;
     box-sizing: border-box;
+    width: 100%;
 }
 
-/* --- Labels --- */
+/* --- Enhanced Labels --- */
 label {
     display: block;
-    font-size: 0.9rem;
-    font-weight: bold;
-    color: #cfd8e3;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #a0aec0;
     margin-bottom: 8px;
 }
 
-/* --- Input Fields (Text, Email, Password, AND Number) --- */
+/* --- Better Input Fields --- */
 input[type="text"],
 input[type="email"],
 input[type="password"],
 input[type="number"] {
     width: 100%;
-    padding: 12px;
+    padding: 14px;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
     border: 1px solid #2d3a4b;
-    border-radius: 5px;
+    border-radius: 6px;
     background-color: #1c2433;
     color: #ffffff;
     box-sizing: border-box;
-    /* Note: Your inline HTML style="width: 60px;" 
-       will override "width: 100%" for the number fields. */
+    margin-bottom: 20px;
+    transition: border-color 0.3s ease;
 }
 
-/* Placeholder */
+input:focus {
+    outline: none;
+    border-color: #3aa7ff;
+}
+
 input::placeholder {
-    color: #778da9;
+    color: #4a5568;
+    font-style: italic;
+    font-size: 0.9rem;
 }
 
-/* --- Register Button --- */
+/* --- Stronger Register Button --- */
 input[type="submit"] {
     width: 100%;
-    padding: 12px;
+    padding: 16px;
     border: none;
-    border-radius: 5px;
+    border-radius: 6px;
     background-color: #3aa7ff;
     color: white;
-    font-size: 1rem;
-    font-weight: bold;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 1rem; /* Add some space before the button */
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    box-shadow: 0 4px 15px rgba(58, 167, 255, 0.2);
 }
 
-/* Hover */
 input[type="submit"]:hover {
     background-color: #1e90ff;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(58, 167, 255, 0.4);
 }
 
 /* --- Bottom Links --- */
-a {
-    color: #3aa7ff;
+a.login-link {
+    color: #73a9f4;
     text-decoration: none;
-    font-size: 0.9rem;
-    margin-top: 1.5rem; /* Give link some space from form */
-    display: inline-block; /* Allows margin-top to work */
-    
-    /* Add a subtle background to make it readable over the image */
-    background-color: rgba(12, 20, 18, 0.6); /* Dark, semi-transparent */
-    padding: 6px 10px;
-    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    background-color: rgba(18, 24, 34, 0.8);
+    padding: 10px 20px;
+    border-radius: 30px;
+    transition: all 0.2s ease;
 }
 
-a:hover {
+a.login-link:hover {
+    background-color: #121822;
     text-decoration: underline;
-    background-color: rgba(18, 24, 34, 0.8); /* Darker on hover */
 }
