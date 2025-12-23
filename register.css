@@ -49,13 +49,13 @@ h1 {
 
 
 /* --- Form Container --- */
-form {
-    flex: 0 0 50%;
-    background-color: #121822; /* Dark blue box */
-    padding: 2.5rem;
-    border-radius: 0 10px 10px 0; /* Rounded only on the right side */
-    box-shadow: none;
-    box-sizing: border-box;
+.register-container {
+    display: flex;
+    max-width: 450px; /* Reduced from 900px for a cleaner look */
+    width: 90%;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
 /* --- Labels --- */
