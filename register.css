@@ -47,11 +47,16 @@ h1 {
 /* --- Form Container --- */
 .register-container {
     display: flex;
-    max-width: 450px; /* Reduced from 900px for a cleaner look */
+    flex-direction: row;
+    align-items: stretch;
+    gap: 0;
+    max-width: 900px;
     width: 90%;
+    height: auto;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+
 }
 
 /* --- Labels --- */
