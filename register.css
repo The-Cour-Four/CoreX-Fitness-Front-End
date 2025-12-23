@@ -2,16 +2,16 @@
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
-    
+
     /* --- Background Image Settings --- */
-    background-image: url("cover page.avif"); 
+    background-image: url("cover page.avif");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    
+
     /* REMOVED BLUE BACKGROUND - Using dark navy/black for better contrast */
-    background-color: #0f172a; 
+    background-color: #0f172a;
     color: #ffffff;
     display: flex;
     flex-direction: column;
@@ -41,13 +41,15 @@ h1 {
     display: flex;
     justify-content: center;
     width: 90%;
-    max-width: 450px; /* Centered width */
+    max-width: 450px;
+    /* Centered width */
     margin: 0 auto;
 }
 
 /* --- The "Black Box" Form --- */
 form {
-    background-color: #121822; /* Dark blue/black box */
+    background-color: #121822;
+    /* Dark blue/black box */
     padding: 2.5rem;
     border-radius: 12px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
@@ -62,7 +64,8 @@ label {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    color: #94a3b8; /* Softer gray for a modern look */
+    color: #94a3b8;
+    /* Softer gray for a modern look */
     margin-bottom: 8px;
 }
 
@@ -71,7 +74,8 @@ input[type="text"],
 input[type="email"],
 input[type="password"],
 input[type="number"] {
-    width: 100% !important; /* Force full width regardless of inline styles */
+    width: 100% !important;
+    /* Force full width regardless of inline styles */
     padding: 14px;
     margin-bottom: 18px;
     border: 1px solid #2d3a4b;
@@ -92,6 +96,27 @@ input:focus {
 input::placeholder {
     color: #475569;
     font-style: italic;
+}
+
+/* --- Register Button --- */
+.register-button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    background-color: #3aa7ff;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.register-button:hover {
+    background-color: #2d3a4b;
 }
 
 /* --- Register
