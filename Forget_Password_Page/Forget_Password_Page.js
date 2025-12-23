@@ -30,7 +30,7 @@ form.addEventListener("submit", async function(e) {
 
         if (response.ok) {
             alert("Password changed successfully!");
-            window.location.href = "Profile_Page.html";
+            window.location.href = "../index.html";
         } 
         
         else {
@@ -44,4 +44,5 @@ form.addEventListener("submit", async function(e) {
     }
 
 });
+
 
