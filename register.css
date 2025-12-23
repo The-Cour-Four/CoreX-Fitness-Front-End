@@ -120,3 +120,143 @@ input::placeholder {
 }
 
 /* --- Register
+css
+
+
+
+
+
+
+/* --- Global Styles --- */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+
+    /* --- Background Image Settings --- */
+    background-image: url("cover page.avif");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    /* REMOVED BLUE BACKGROUND - Using dark navy/black for better contrast */
+    background-color: #0f172a;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 2rem 0;
+}
+
+/* --- Improved Heading --- */
+h1 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 800;
+    font-style: italic;
+    font-size: 3.5rem;
+    color: #73a9f4;
+    margin-bottom: 2rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    text-shadow: 2px 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* --- Form Container --- */
+.register-container {
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    max-width: 450px;
+    /* Centered width */
+    margin: 0 auto;
+}
+
+/* --- The "Black Box" Form --- */
+form {
+    background-color: #121822;
+    /* Dark blue/black box */
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* --- Enhanced Text Labels --- */
+label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #94a3b8;
+    /* Softer gray for a modern look */
+    margin-bottom: 8px;
+}
+
+/* --- Better Input Fields --- */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"] {
+    width: 100% !important;
+    /* Force full width regardless of inline styles */
+    padding: 14px;
+    margin-bottom: 18px;
+    border: 1px solid #2d3a4b;
+    border-radius: 6px;
+    background-color: #1c2433;
+    color: #ffffff;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: #3aa7ff;
+    background-color: #242f41;
+}
+
+input::placeholder {
+    color: #475569;
+    font-style: italic;
+}
+
+/* --- Register Button --- */
+.register-button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    background-color: #3aa7ff;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.register-button:hover {
+    background-color: #2d3a4b;
+}
+
+.login-link{
+    color: #3aa7ff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+.login-link:hover{
+    color: #3e75bb;
+}
