@@ -305,16 +305,30 @@
                     card.className = 'card';
                     card.innerHTML = `
                         <div class="card-img">
-                            <img src="index.avif" alt="index.avif" loading="lazy">
+                            <img src="${item.imgSrc}" alt="${item.title}" loading="lazy">
                         </div>
                         <div class="card-body">
                             <span class="tag">${item.tag}</span>
                             <h3 class="card-title">${item.title}</h3>
                             <p class="card-desc">${item.desc}</p>
-                            <button class="btn-select" onclick="window.location.href='../diet_plan.html'">${btnText}</button>
+                            <button class="btn-select" data-program="${item.title}">${btnText}</button>
                         </div>
                     `;
                     grid.appendChild(card);
+                    
+                    // Add click event listener to the button
+                    const btn = card.querySelector('.btn-select');
+                    btn.addEventListener('click', function() {
+                        const program = this.getAttribute('data-program');
+                        
+                        if (program === 'GYM') {
+                            window.location.href = '../Training_Plan_Page/Gym_Plan_Page/gym_plan.html';
+                        } else if (program === 'Body Weight') {
+                            window.location.href = '../Training_Plan_Page/BodyWeight_Plan_Page/bw_plan.html';
+                        } else if (program === 'Diet') {
+                            window.location.href = '../diet_plan.html';
+                        }
+                    });
                 }
             });
         }
