@@ -1,4 +1,3 @@
-
 console.log("Testing the js here. ");
 console.log("This means the js is working! ");
 const form = document.querySelector("form");
@@ -30,7 +29,7 @@ form.addEventListener("submit", async function (e) {
 
     if(New_Password !== Confirm_Password){
         alert("The Confirm Password mismatches the new Password! please re-enter them again. ");
-        return; //stopping the function here, so we do not send to the backend useless response.
+        return;
     }
 
     try{
@@ -71,16 +70,14 @@ form.addEventListener("submit", async function (e) {
         if(response.ok){
             alert("Details changed successfully! ");
             console.log("API IS WORKING. ");   
-        }//200
+        }
         
         else{
-            alert("Invalid credentials! "); //400
+            alert("Invalid credentials! ");
             console.log("API IS WORKING. "); 
         }
     }catch(error){
-        console.log(error);//500 (api)
+        console.log(error);
         return;
     }
-
-
 })

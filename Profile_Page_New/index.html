@@ -1,75 +1,129 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> CoreX Fitness Profile </title>
-    <link href="index.css" rel="stylesheet">
+    <meta name="description" content="CoreX Fitness - Manage your profile, update your information, and track your fitness journey.">
+    <meta name="theme-color" content="#3aa7ff">
+    <title>CoreX Fitness - My Profile</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../shared/common.css">
+    <link rel="stylesheet" href="index.css">
   </head>
   <body>
+    <div class="nav-overlay" aria-hidden="true"></div>
+    
     <header>
-            <h1 class="main-title">CoreX Fitness</h1>
-            <nav>
-                <ul>
-                    <li><a href="../Home_and_Choose_Us_Page/index.html">Home</a></li>
-                    <li><a href="#choose-us">Choose Us</a></li>
-                    <li><a href="#">Programs</a></li>
-                    <li><a href="#">BMI Calculator</a></li>
-                </ul>
-            </nav>
+        <h1 class="main-title">CoreX Fitness</h1>
+        
+        <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        
+        <nav role="navigation" aria-label="Main navigation">
+            <ul>
+                <li><a href="../Home_and_Choose_Us_Page/index.html">Home</a></li>
+                <li><a href="../Home_and_Choose_Us_Page/index.html#choose-us">Why Us</a></li>
+                <li><a href="../Programs_Pages_new/index.html">Programs</a></li>
+                <li><a href="../BMI_Calculator_Page/BMI_Calculator_Page.html">BMI Calculator</a></li>
+                <li><a href="../AI_Features/chat.html">AI Coach</a></li>
+                <li><a href="../AI_Features/motivation.html">Motivation</a></li>
+            </ul>
+        </nav>
 
+        <div class="header-controls">
+            <button class="theme-toggle" aria-label="Toggle dark/light mode">
+                <span class="icon-sun">☀️</span>
+                <span class="icon-moon">🌙</span>
+            </button>
             <div class="profile-menu">
-              <button class="profile-button" aria-label="Profile">👤</button>
-              <ul class="dropdown">
-                <li><a href="index.html">My Profile</a></li>
-                <li><a href="#">Programs Progress</a></li>
-                <li><a href="#">Log Out</a></li>
+              <button class="profile-button" aria-label="Profile menu" aria-expanded="false">👤</button>
+              <ul class="dropdown" role="menu">
+                <li role="menuitem"><a href="index.html" aria-current="page">My Profile</a></li>
+                <li role="menuitem"><a href="../Programs_Pages_new/index.html">Programs Progress</a></li>
+                <li role="menuitem"><a href="../index.html">Log Out</a></li>
               </ul>
             </div>
-
+        </div>
     </header>
-    <h1 class="my-profile"> My Profile </h1>
+    
+    <main class="profile-page">
+        <h1 class="my-profile animate-fade-in">My Profile</h1>
 
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-
-    <h2 class="update"> Update Your Information </h2>
-    <form id="Profile-form" class="profile-form">
-        
-            <label for="username">Username:</label><br>
-            <input type="text" id="username" name="username" required> <br><br>
-
-            <label for="email">Email (New):</label><br>
-            <input type="email" id="new-email" name="email" required> <br><br>
+        <section class="profile-section animate-fade-in delay-1">
+            <h2 class="update">Update Your Information</h2>
             
-            <label for="age">Age:</label><br>
-            <input type="number" id="age" name="age" required> <br><br>
-            
-            <label for="weight">Weight:</label><br>
-            <input type="number" id="weight" name="weight" required> <br><br>
-            
-            <label for="height">Height:</label><br>
-            <input type="number" id="height" name="height" required> <br><br>
-            
-            <label for="email">Email (Current):</label><br>
-            <input type="email" id="email" name="email" required> <br><br>
-            
-            <label for="current-password">Password (Current):</label> <br>
-            <input type="text" id="password" name="password"><br><br>
+            <form id="profile-form" class="profile-form" novalidate>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" placeholder="Enter username" required autocomplete="username">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="new-email">New Email</label>
+                        <input type="email" id="new-email" name="new-email" placeholder="Enter new email" required autocomplete="email">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="age">Age</label>
+                        <input type="number" id="age" name="age" placeholder="Your age" min="10" max="120" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="weight">Weight (kg)</label>
+                        <input type="number" id="weight" name="weight" placeholder="Your weight" min="20" max="300" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="height">Height (cm)</label>
+                        <input type="number" id="height" name="height" placeholder="Your height" min="100" max="250" required>
+                    </div>
+                </div>
+                
+                <hr class="form-divider">
+                
+                <h3 class="form-section-title">Security</h3>
+                
+                <div class="form-group">
+                    <label for="current-email">Current Email</label>
+                    <input type="email" id="current-email" name="current-email" placeholder="Your current email" required autocomplete="email">
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="current-password">Current Password</label>
+                        <input type="password" id="current-password" name="current-password" placeholder="Current password" autocomplete="current-password">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="new-password">New Password</label>
+                        <input type="password" id="new-password" name="new-password" placeholder="New password" autocomplete="new-password">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="confirm-password">Confirm Password</label>
+                        <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm new password" autocomplete="new-password">
+                    </div>
+                </div>
 
-            <label for="new-password">New Password:</label> <br>
-            <input type="text" id="new-password" name="new-password"><br><br>
+                <button type="submit" class="btn-submit">
+                    <span class="btn-text">Update Profile</span>
+                    <span class="btn-loader spinner hidden"></span>
+                </button>
+            </form>
+        </section>
+    </main>
 
-            <label for="confirm-password">Confirm Password:</label> <br>
-            <input type="text" id="confirm-password" name="confirm-password"><br><br>
-
-            <input type="submit" value="Update Profile">
-    </form>
-
+    <script src="../shared/common.js"></script>
     <script src="index.js"></script>
-
   </body>    
 </html>

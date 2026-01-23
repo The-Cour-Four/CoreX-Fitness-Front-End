@@ -1,57 +1,95 @@
-function calculator(event) {
+const bmiForm = document.getElementById("bmi-form");
+const ageInput = document.getElementById("age");
+const weightInput = document.getElementById("weight");
+const heightInput = document.getElementById("height");
+const bmiOutput = document.getElementById("bmi-output");
 
-    event.preventDefault(); // Prevent form submission from reloading page
-    var age = document.getElementById("age").value;
-    var weight = document.getElementById("weight").value;
-    var height = document.getElementById("height").value;
-
-    if (age === "" || weight === "" || height === "") {
-        alert("Please fill in all fields.");
-        return;
-    }
-
-    if (isNaN(age) || isNaN(weight) || isNaN(height)) {
-        alert("Please enter valid numbers for age, weight, and height.");
-        return;
-    }
-
-    age = parseInt(age);
-    weight = parseFloat(weight);
-    height = parseFloat(height);
-    var heightM = height / 100;
-    var bmi = (weight / (heightM * heightM)).toFixed(2);
-
-    var output = document.getElementById("bmi-output");
-
-    if (bmi < 18.5) {
-        output.innerText = bmi + "\n\nYou are UnderWeight";
-        output.style.color = "#0a5604ff";
-    } 
-
-    else if (bmi >= 18.5 && bmi < 24.9) {
-        output.innerText = bmi + "\n\nYou are in the Healthy Range";
-        output.style.color = "#1c8113ff";
-    } 
-
-    else if (bmi >= 25 && bmi < 29.9) {
-        output.innerText = bmi + "\n\nYou are OverWeight";
-        output.style.color = "#4fd643ff";
-    } 
-
-    else if (bmi >= 30 && bmi < 34.9) {
-        output.innerText = bmi + "\n\nYou are in Obesity Class I";
-        output.style.color = "#d3349cff";
-    }
-
-    else if (bmi >= 35 && bmi < 39.9) {
-        output.innerText = bmi + "\n\nYou are in Obesity Class II";
-        output.style.color = "#8b248dff";
-    }
-
-    else if (bmi >= 40) {
-        output.innerText = bmi + "\n\nYou are in Obesity Class III";
-        output.style.color = "#730419ff";
-    } 
-
-    
+function calculateBMI(weight, height) {
+    const heightM = height / 100;
+    return (weight / (heightM * heightM)).toFixed(1);
 }
+
+function getBMICategory(bmi) {
+    if (bmi < 18.5) {
+        return { category: "Underweight", class: "underweight", message: "Consider a nutrition plan to gain healthy weight." };
+    } else if (bmi >= 18.5 && bmi < 25) {
+        return { category: "Normal", class: "normal", message: "Great job! Maintain your healthy lifestyle." };
+    } else if (bmi >= 25 && bmi < 30) {
+        return { category: "Overweight", class: "overweight", message: "Consider our workout and diet programs." };
+    } else {
+        return { category: "Obese", class: "obese", message: "Consult a professional for a personalized plan." };
+    }
+}
+
+function displayResult(bmi, categoryInfo) {
+    const valueEl = bmiOutput.querySelector(".bmi-value");
+    const categoryEl = bmiOutput.querySelector(".bmi-category");
+    
+    valueEl.style.transform = "scale(0)";
+    valueEl.style.opacity = "0";
+    
+    setTimeout(() => {
+        valueEl.textContent = bmi;
+        valueEl.style.transform = "scale(1)";
+        valueEl.style.opacity = "1";
+        valueEl.style.transition = "all 0.3s ease";
+        
+        categoryEl.textContent = categoryInfo.category;
+        categoryEl.className = "bmi-category " + categoryInfo.class;
+        
+        Toast.info(categoryInfo.message, 5000);
+    }, 100);
+    
+    document.querySelectorAll(".scale-item").forEach(item => {
+        item.style.transform = "scale(1)";
+        item.style.boxShadow = "none";
+    });
+    
+    const activeScale = document.querySelector(".scale-item." + categoryInfo.class);
+    if (activeScale) {
+        activeScale.style.transform = "scale(1.1)";
+        activeScale.style.boxShadow = "0 4px 15px rgba(0,0,0,0.3)";
+    }
+}
+
+function validateInput(input, min, max, name) {
+    const value = parseFloat(input.value);
+    
+    if (!input.value || isNaN(value)) {
+        Toast.error("Please enter a valid " + name);
+        input.focus();
+        return false;
+    }
+    
+    if (value < min || value > max) {
+        Toast.error(name + " must be between " + min + " and " + max);
+        input.focus();
+        return false;
+    }
+    
+    return true;
+}
+
+bmiForm?.addEventListener("submit", function(e) {
+    e.preventDefault();
+    
+    if (!validateInput(ageInput, 10, 120, "Age")) return;
+    if (!validateInput(weightInput, 20, 300, "Weight")) return;
+    if (!validateInput(heightInput, 100, 250, "Height")) return;
+    
+    const weight = parseFloat(weightInput.value);
+    const height = parseFloat(heightInput.value);
+    
+    const bmi = calculateBMI(weight, height);
+    const categoryInfo = getBMICategory(parseFloat(bmi));
+    
+    displayResult(bmi, categoryInfo);
+    
+    Toast.success("BMI calculated successfully!");
+});
+
+[ageInput, weightInput, heightInput].forEach(input => {
+    input?.addEventListener("input", function() {
+        this.style.borderColor = this.value ? "var(--primary)" : "";
+    });
+});
