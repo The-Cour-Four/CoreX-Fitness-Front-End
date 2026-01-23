@@ -3,92 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>30-Day Nutrition Plan</title>
+    <meta name="description" content="CoreX Fitness - 30-Day Nutrition Plan for cutting and bulking goals">
+    <meta name="theme-color" content="#3aa7ff">
+    <title>30-Day Nutrition Plan | CoreX Fitness</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:ital,wght@0,400;0,600;0,800;1,800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="shared/common.css">
+    
     <style>
-
-        .profile-button{
-            font-size: 30px;
-            background-color: #ffffff;
-            color: #3aa7ff;
-            border: none;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        .profile-button:hover {
-            background-color: #3aa7ff;
-        }
-
-
-        body{
-            font-family: 'Poppins', sans-serif;
-            background-color: #121212;
-            color: #ffffff;
-            min-height: 100vh;
-        }
-
-        header{
-            color: #3aa7ff;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 40px;
-            background-color: #1e1e1e; 
-            border-radius: 8px;
-            margin: 20px auto;
-            margin-bottom: 50px;
-            max-width: 2000px;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: #ffffff;
-            font-size: 20px;
-            margin-left: 40px;
-            opacity: 0.7;
-            transition: opacity 0.3s, color 0.3s;
-        }
-        nav ul li a:hover{
-            opacity: 1;
-            color: #3aa7ff;
-        }
-
-
-
-        /* --- 1. CORE STYLES --- */
         :root {
-            /* CHANGED: All primary accents are now your specific Blue */
-            --primary: #3aa7ff; 
-            --dark: #121212;
-            --light: #f4f4f4;
-            --card-bg: #1e1e1e;
             --bar-bg: #2d2d2d;
         }
 
-        body { 
-            background-color: var(--dark); 
-            color: var(--light); 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            margin: 0; 
-            padding: 20px; 
-        }
-
-        /* --- 2. CONTROL BAR (HEADER) --- */
         .control-bar {
-            background-color: var(--bar-bg);
+            background-color: var(--bg-secondary);
             padding: 20px;
-            border-radius: 12px;
+            border-radius: var(--radius-lg);
             border-bottom: 4px solid var(--primary);
             display: flex;
             justify-content: space-between;
@@ -96,7 +29,7 @@
             flex-wrap: wrap;
             gap: 15px;
             margin-bottom: 30px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            box-shadow: var(--shadow-lg);
             max-width: 1200px;
             margin-left: auto;
             margin-right: auto;
@@ -104,32 +37,41 @@
 
         .control-bar h1 {
             margin: 0;
-            font-size: 1.8rem;
-            color: white;
+            font-size: clamp(1.4rem, 4vw, 1.8rem);
+            color: var(--text-primary);
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
-        .control-bar p { margin: 5px 0 0 0; color: #bbb; font-size: 0.9rem; }
+        .control-bar p { 
+            margin: 5px 0 0 0; 
+            color: var(--text-muted); 
+            font-size: 0.9rem; 
+        }
 
-        /* DROPDOWN STYLE */
-        .select-container { position: relative; }
+        .select-container { 
+            position: relative; 
+        }
 
-        select {
+        .plan-select {
             padding: 12px 40px 12px 20px;
             font-size: 1rem;
             border-radius: 25px;
             border: 2px solid var(--primary);
-            background: #000;
-            color: white;
+            background: var(--bg-primary);
+            color: var(--text-primary);
             cursor: pointer;
             font-weight: bold;
             appearance: none; 
             outline: none;
             min-width: 200px;
+            transition: var(--transition-fast);
         }
 
-        /* Custom Arrow */
+        .plan-select:focus {
+            box-shadow: 0 0 0 3px rgba(58, 167, 255, 0.3);
+        }
+
         .select-container::after {
             content: '▼';
             font-size: 0.8rem;
@@ -141,25 +83,24 @@
             pointer-events: none;
         }
 
-        /* --- 3. MAIN LAYOUT --- */
         .plan-container { 
             display: flex; 
             gap: 20px; 
             flex-wrap: wrap; 
             max-width: 1200px;
             margin: 0 auto;
+            padding: 0 1rem;
         }
 
-        /* LEFT: DAY LIST */
         .day-selector { 
             flex: 1; 
-            min-width: 280px; 
-            background: var(--card-bg); 
+            min-width: 250px; 
+            background: var(--bg-secondary); 
             padding: 15px; 
-            border-radius: 12px; 
-            height: 600px; 
+            border-radius: var(--radius-lg); 
+            max-height: 600px; 
             overflow-y: auto; 
-            border: 1px solid #333;
+            border: 1px solid var(--border-color);
         }
 
         .day-btn {
@@ -167,108 +108,208 @@
             width: 100%;
             padding: 15px;
             margin-bottom: 8px;
-            background: #2a2a2a;
+            background: var(--bg-tertiary);
             border: none;
-            color: white;
+            color: var(--text-primary);
             text-align: left;
             cursor: pointer;
-            border-radius: 8px;
+            border-radius: var(--radius-md);
             font-weight: 500;
-            transition: all 0.2s ease;
+            font-family: inherit;
+            transition: var(--transition-fast);
         }
         
-        .day-btn:hover { background: #333; padding-left: 20px; }
+        .day-btn:hover { 
+            background: var(--border-color); 
+            padding-left: 20px; 
+        }
         
         .day-btn.active-day { 
             background: var(--primary); 
-            color: black; /* Text becomes black on blue background */
+            color: #000;
             font-weight: bold; 
-            box-shadow: 0 0 15px rgba(58, 167, 255, 0.4); /* Blue glow */
+            box-shadow: 0 0 15px rgba(58, 167, 255, 0.4);
         }
 
-        /* RIGHT: CONTENT DISPLAY */
         .day-display {
             flex: 2;
             min-width: 300px;
-            background: #181818;
+            background: var(--bg-secondary);
             padding: 25px;
-            border-radius: 12px;
-            border: 1px solid #333;
-            height: 600px;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-color);
+            max-height: 600px;
             overflow-y: auto;
         }
 
         .tag { 
             display: inline-block; 
             background: var(--primary); 
-            color: black; 
+            color: #000; 
             padding: 5px 12px; 
             font-size: 0.8rem; 
-            border-radius: 4px; 
+            border-radius: var(--radius-sm); 
             margin-bottom: 15px; 
             font-weight: 800; 
             text-transform: uppercase;
         }
 
-        h2 { margin-top: 0; font-size: 2.2rem; margin-bottom: 10px; color: white;}
-        p.desc { color: #ccc; font-size: 1.1rem; line-height: 1.6; }
+        .day-display h2 { 
+            margin-top: 0; 
+            font-size: clamp(1.5rem, 4vw, 2.2rem); 
+            margin-bottom: 10px; 
+            color: var(--text-primary);
+        }
+        
+        p.desc { 
+            color: var(--text-muted); 
+            font-size: 1.1rem; 
+            line-height: 1.6; 
+        }
 
-        /* IMAGE BOX */
         .meal-image {
             width: 100%;
             height: 350px;
             object-fit: cover; 
-            border-radius: 10px;
+            border-radius: var(--radius-md);
             margin-top: 20px;
-            border: 1px solid #333;
-            background-color: #000;
+            border: 1px solid var(--border-color);
+            background-color: var(--bg-primary);
             display: block;
             transition: opacity 0.3s ease;
         }
-        
+
+        @media screen and (max-width: 900px) {
+            .plan-container {
+                flex-direction: column;
+            }
+            
+            .day-selector {
+                max-height: 200px;
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+                gap: 8px;
+            }
+            
+            .day-btn {
+                text-align: center;
+                padding: 12px 8px;
+                margin-bottom: 0;
+            }
+            
+            .day-btn:hover {
+                padding-left: 8px;
+            }
+            
+            .day-display {
+                max-height: none;
+            }
+            
+            .meal-image {
+                height: 250px;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .control-bar {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .plan-select {
+                width: 100%;
+                min-width: unset;
+            }
+            
+            .select-container {
+                width: 100%;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .day-selector {
+                grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+            }
+            
+            .day-btn {
+                padding: 10px 5px;
+                font-size: 0.85rem;
+            }
+            
+            .day-display {
+                padding: 15px;
+            }
+            
+            .meal-image {
+                height: 200px;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <header>
-            <h1 class="main-title">CoreX Fitness</h1>
-            <nav>
-                <ul>
-                    <li><a href="Home_and_Choose_Us_Page/index.html">Home</a></li>
-                    <li><a href="Home_and_Choose_Us_Page/index.html#choose-us">Choose Us</a></li>
-                    <li><a href="Programs_Pages_new/index.html">Programs</a></li>
-                    <li><a href="BMI_Calculator_Page/BMI_Calculator_Page.html">BMI Calculator</a></li>
-                </ul>
-            </nav>
-            <button class="profile-button" aria-label="Go to Profile">👤</button>
-    </header>
-
-    <div class="control-bar">
-        <div>
-            <h1>Nutrition Master</h1>
-            <p>Select your goal to switch the entire 30-day plan.</p>
-        </div>
+    <header class="main-header">
+        <a href="Home_and_Choose_Us_Page/index.html" class="logo">CoreX Fitness</a>
         
-        <div class="select-container">
-            <select id="plan-type" onchange="updatePlanMode()">
-                <option value="cutting">Cutting (Fat Loss)</option>
-                <option value="bulking">Bulking (Muscle Gain)</option>
-            </select>
+        <nav class="main-nav" id="mainNav">
+            <ul>
+                <li><a href="Home_and_Choose_Us_Page/index.html">Home</a></li>
+                <li><a href="Home_and_Choose_Us_Page/index.html#choose-us">Why Us</a></li>
+                <li><a href="Programs_Pages_new/index.html">Programs</a></li>
+                <li><a href="BMI_Calculator_Page/BMI_Calculator_Page.html">BMI Calculator</a></li>
+                <li><a href="AI_Features/chat.html">AI Coach</a></li>
+                <li><a href="AI_Features/motivation.html">Motivation</a></li>
+            </ul>
+        </nav>
+        
+        <div class="header-controls">
+            <button class="theme-toggle" aria-label="Toggle dark/light mode">
+                    <span class="icon-sun">☀️</span>
+                    <span class="icon-moon">🌙</span>
+                </button>
+            </button>
+            <a href="Profile_Page_New/index.html" class="profile-btn" aria-label="Go to Profile">👤</a>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
-    </div>
+    </header>
+    
+    <div class="nav-overlay" id="navOverlay"></div>
 
-    <div class="plan-container">
-        <div class="day-selector" id="day-list"></div>
-
-        <div class="day-display">
-            <span class="tag" id="plan-tag">CUTTING PLAN</span>
-            <h2 id="meal-name">Loading...</h2>
-            <p class="desc" id="meal-desc">Select a day to view details.</p>
+    <main style="padding-top: 100px;">
+        <div class="control-bar">
+            <div>
+                <h1>Nutrition Master</h1>
+                <p>Select your goal to switch the entire 30-day plan.</p>
+            </div>
             
-            <img id="meal-img" src="" alt="Meal Preview" class="meal-image">
+            <div class="select-container">
+                <select id="plan-type" class="plan-select" onchange="updatePlanMode()" aria-label="Select nutrition plan type">
+                    <option value="cutting">Cutting (Fat Loss)</option>
+                    <option value="bulking">Bulking (Muscle Gain)</option>
+                </select>
+            </div>
         </div>
-    </div>
 
+        <div class="plan-container">
+            <div class="day-selector" id="day-list" role="tablist" aria-label="Day selection"></div>
+
+            <div class="day-display" role="tabpanel">
+                <span class="tag" id="plan-tag">CUTTING PLAN</span>
+                <h2 id="meal-name">Loading...</h2>
+                <p class="desc" id="meal-desc">Select a day to view details.</p>
+                
+                <img id="meal-img" src="" alt="Meal Preview" class="meal-image" loading="lazy">
+            </div>
+        </div>
+    </main>
+
+    <!-- Shared JS -->
+    <script src="shared/common.js"></script>
+    
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             
@@ -367,7 +408,5 @@
 </body>
 
 </html>
-
-<!-- This is the Final Edit to Diet Plan Page -->
 
 
