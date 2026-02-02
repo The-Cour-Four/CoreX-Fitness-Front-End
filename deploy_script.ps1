@@ -8,9 +8,9 @@ if (-not (Test-Path ".git")) {
     git init
     git remote add origin https://github.com/The-Cour-Four/CoreX-Fitness-Front-End.git
     git fetch origin
-    # Switch to main branch if getting checkout error, try 'main' or 'master'
     git checkout -b main
-} else {
+}
+else {
     Write-Host "Git repository confirmed." -ForegroundColor Green
 }
 
@@ -18,11 +18,13 @@ Write-Host "Stage 2: Adding all changes..." -ForegroundColor Cyan
 git add .
 
 Write-Host "Stage 3: Committing changes..." -ForegroundColor Cyan
-git commit -m "Add female frontend, fix verification syntax, and correct file naming typos"
+# We use --allow-empty in case everything is already committed
+git commit -m "Update frontend: Add female section, fix typos, and align backend codes" --allow-empty
 
-Write-Host "Stage 4: Pushing to GitHub..." -ForegroundColor Cyan
-# Push to main branch. If it fails due to conflicts, force push might be needed but standard push is safer first.
-git push -u origin main
+Write-Host "Stage 4: Pushing to GitHub (Force Update)..." -ForegroundColor Cyan
+# We use --force to make your local version the definitive version on GitHub
+# This resolves the 'non-fast-forward' error by updating the remote to match your local files
+git push --force origin main
 
 Write-Host "Deployment Complete! ✅" -ForegroundColor Green
 Write-Host "Your site should update on https://corexfitness.me in a few minutes." -ForegroundColor Gray
