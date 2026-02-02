@@ -1,0 +1,419 @@
+.profile-menu {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    position: absolute;
+    right: 0;
+    top: 100%;
+    margin-top: 10px;
+    background-color: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    min-width: 180px;
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--border-color);
+    transition: var(--transition-fast);
+    z-index: 1000;
+    list-style: none;
+    padding: 8px 0;
+}
+
+.profile-menu:hover .dropdown,
+.dropdown.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown li a {
+    display: block;
+    padding: 12px 20px;
+    color: var(--text-primary);
+    transition: var(--transition-fast);
+}
+
+.dropdown li a:hover {
+    background-color: var(--primary-light);
+    color: var(--primary);
+    text-decoration: none;
+}
+
+/* Motivation Boost Page Styles */
+.motivation-page {
+    padding: 20px 5%;
+    max-width: 700px;
+    margin: 0 auto;
+    min-height: calc(100vh - 200px);
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.page-header h1 {
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    margin-bottom: 10px;
+    color: var(--text-primary);
+}
+
+.page-header p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+}
+
+/* Motivation Card */
+.motivation-card {
+    text-align: center;
+    padding: 45px 35px;
+    margin-bottom: 30px;
+}
+
+.card-icon {
+    font-size: 5rem;
+    margin-bottom: 20px;
+    animation: pulse 2s infinite;
+}
+
+.motivation-card h2 {
+    color: var(--text-primary);
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+}
+
+.card-description {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 35px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 350px;
+    margin: 0 auto 35px;
+}
+
+.btn-large {
+    padding: 16px 28px;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn-large .btn-icon {
+    font-size: 1.2rem;
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+/* Motivation Features */
+.motivation-features {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    padding-top: 25px;
+    border-top: 1px solid var(--border-color);
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.feature-item .feature-icon {
+    font-size: 1.2rem;
+}
+
+/* Quick Links */
+.quick-links {
+    margin-top: 40px;
+}
+
+.quick-links h3 {
+    text-align: center;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+}
+
+.links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.quick-link-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 25px 20px;
+    text-decoration: none;
+    transition: var(--transition-normal);
+}
+
+.quick-link-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+    text-decoration: none;
+}
+
+.quick-link-card .link-icon {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.quick-link-card .link-text {
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.quick-link-card .link-description {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+/* Modal */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.85);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9998;
+    padding: 20px;
+}
+
+.modal-overlay.show {
+    display: flex;
+}
+
+.modal-content {
+    max-width: 550px;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    position: relative;
+    padding: 35px;
+    animation: modalSlide 0.3s ease;
+}
+
+@keyframes modalSlide {
+    from { 
+        opacity: 0; 
+        transform: translateY(-30px) scale(0.95); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0) scale(1); 
+    }
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-full);
+    width: 36px;
+    height: 36px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-fast);
+}
+
+.modal-close:hover {
+    color: var(--text-primary);
+    border-color: var(--primary);
+    background: var(--primary-light);
+}
+
+.modal-content h3 {
+    margin-bottom: 25px;
+    color: var(--text-primary);
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+.email-preview {
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin-bottom: 25px;
+}
+
+.email-header {
+    background: linear-gradient(135deg, var(--primary) 0%, #1e6fd1 100%);
+    color: white;
+    padding: 25px;
+    text-align: center;
+}
+
+.email-logo {
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.email-subject {
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+.email-body {
+    padding: 25px;
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    line-height: 1.8;
+    min-height: 150px;
+}
+
+.email-body p {
+    margin-bottom: 12px;
+    color: var(--text-secondary);
+}
+
+.email-body strong {
+    color: var(--primary);
+}
+
+.modal-actions {
+    text-align: center;
+}
+
+.modal-actions .btn {
+    width: 100%;
+}
+
+/* Loading Overlay */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.loading-overlay.show {
+    display: flex;
+}
+
+.loading-content {
+    text-align: center;
+    color: white;
+}
+
+.loading-spinner {
+    width: 55px;
+    height: 55px;
+    border: 4px solid rgba(255, 255, 255, 0.2);
+    border-top-color: var(--primary);
+    border-radius: var(--radius-full);
+    animation: spin 1s linear infinite;
+    margin: 0 auto 20px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.loading-content p {
+    font-size: 1.1rem;
+    color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .motivation-page {
+        padding: 15px 4%;
+    }
+    
+    .motivation-card {
+        padding: 35px 25px;
+    }
+    
+    .card-icon {
+        font-size: 4rem;
+    }
+    
+    .motivation-card h2 {
+        font-size: 1.5rem;
+    }
+    
+    .motivation-features {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    .modal-content {
+        padding: 25px 20px;
+        margin: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .motivation-card {
+        padding: 30px 20px;
+    }
+    
+    .card-icon {
+        font-size: 3.5rem;
+    }
+    
+    .action-buttons {
+        gap: 12px;
+    }
+    
+    .btn-large {
+        padding: 14px 20px;
+        font-size: 0.95rem;
+    }
+    
+    .links-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .quick-link-card {
+        padding: 20px 15px;
+    }
+}

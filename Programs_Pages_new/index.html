@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CoreX Fitness Programs - Choose from GYM workouts, Body Weight training, and Diet plans tailored to your goals.">
+    <meta name="theme-color" content="#3aa7ff">
+    <title>CoreX Fitness - Programs</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../shared/common.css">
+    
+    <style>
+
+        
+        .programs-page {
+            padding: 20px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .header-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .header-section h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 10px;
+        }
+        
+        .header-section p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+        
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            background: transparent;
+            border: 2px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: 10px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: var(--transition-normal);
+            font-weight: 500;
+            font-size: 1rem;
+        }
+        
+        .filter-btn.active,
+        .filter-btn:hover {
+            border-color: var(--primary);
+            background: var(--primary);
+            color: white;
+        }
+        
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        
+        .program-card {
+            background: var(--bg-secondary);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: var(--transition-normal);
+            border: 1px solid var(--border-color);
+        }
+        
+        .program-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            border-color: var(--primary);
+        }
+        
+        .card-img {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .program-card:hover .card-img img {
+            transform: scale(1.1);
+        }
+        
+        .card-body {
+            padding: 25px;
+        }
+        
+        .tag {
+            display: inline-block;
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 5px 12px;
+            font-size: 0.85rem;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        
+        .card-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+        }
+        
+        .card-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .btn-select {
+            width: 100%;
+            padding: 14px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: var(--radius-md);
+            transition: var(--transition-normal);
+            font-size: 1rem;
+        }
+        
+        .btn-select:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(58, 167, 255, 0.4);
+        }
+        
+        @media screen and (max-width: 768px) {
+            .programs-page {
+                padding: 15px;
+            }
+            
+            .programs-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .filters {
+                gap: 10px;
+            }
+            
+            .filter-btn {
+                padding: 8px 20px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .card-img {
+                height: 180px;
+            }
+            
+            .card-body {
+                padding: 20px;
+            }
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
+    
+    <header class="main-header">
+        <a href="../Home_and_Choose_Us_Page/index.html" class="logo">CoreX Fitness</a>
+        
+        <nav class="main-nav" id="mainNav" role="navigation" aria-label="Main navigation">
+            <ul>
+                <li><a href="../Home_and_Choose_Us_Page/index.html">Home</a></li>
+                <li><a href="../Home_and_Choose_Us_Page/index.html#choose-us">Why Us</a></li>
+                <li><a href="index.html" aria-current="page" style="color: #3b82f6;">Programs</a></li>
+                <li><a href="../BMI_Calculator_Page/BMI_Calculator_Page.html">BMI Calculator</a></li>
+                <li><a href="../AI_Features/chat.html">AI Coach</a></li>
+                <li><a href="../AI_Features/exercise.html">Exercise Planner</a></li>
+                <li><a href="../AI_Features/motivation.html">Motivation</a></li>
+            </ul>
+        </nav>
+        
+        <div class="header-controls">
+            <button class="theme-toggle" aria-label="Toggle dark/light mode">
+                    <span class="icon-sun">☀️</span>
+                    <span class="icon-moon">🌙</span>
+                </button>
+            </button>
+
+            <div class="profile-menu">
+              <button class="profile-button" aria-label="Profile menu" aria-expanded="false">👤</button>
+              <ul class="dropdown" role="menu">
+                <li role="menuitem"><a href="../Profile_Page_New/index.html" aria-current="page">My Profile</a></li>
+                <li role="menuitem"><a href="../index.html">Log Out</a></li>
+              </ul>
+            </div>
+
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main class="programs-page">
+        <section class="header-section animate-fade-in">
+            <h1 id="pageTitle">Choose Your Program</h1>
+            <p id="pageSub">Select the program that fits your goals perfectly.</p>
+        </section>
+
+        <div class="filters animate-fade-in delay-1" role="group" aria-label="Filter programs">
+            <button class="filter-btn active" data-filter="all" aria-pressed="true">All</button>
+            <button class="filter-btn" data-filter="training" aria-pressed="false">Training</button>
+            <button class="filter-btn" data-filter="diet" aria-pressed="false">Diet</button>
+        </div>
+
+        <div class="programs-grid" id="programsGrid" role="list"></div>
+    </main>
+
+    <script src="../shared/common.js"></script>
+    <script>
+        const programs = [
+            { 
+                id: 1, 
+                type: "training", 
+                imgSrc: "index.avif", 
+                title: "GYM", 
+                desc: "Master the iron. Utilize professional equipment and free weights for maximum gains.", 
+                tag: "Advanced",
+                url: "../Training_Plan_Page/Gym_Plan_Page/gym_plan.html"
+            },
+            { 
+                id: 2, 
+                type: "training", 
+                imgSrc: "index.jpg", 
+                title: "Body Weight", 
+                desc: "No equipment, no limits. Build functional strength anywhere, anytime.", 
+                tag: "Beginner",
+                url: "../Training_Plan_Page/BodyWeight_Plan_Page/bw_plan.html"
+            },
+            { 
+                id: 3, 
+                type: "diet", 
+                imgSrc: "index.webp", 
+                title: "Diet Plan", 
+                desc: "Fuel your progress. Customized nutrition plans to match your fitness goals.", 
+                tag: "All Levels",
+                url: "../diet_plan.html"
+            }
+        ];
+
+        function renderPrograms(filter = "all") {
+            const grid = document.getElementById("programsGrid");
+            grid.innerHTML = "";
+            
+            const filteredPrograms = filter === "all" 
+                ? programs 
+                : programs.filter(p => p.type === filter);
+            
+            filteredPrograms.forEach((program, index) => {
+                const card = document.createElement("article");
+                card.className = "program-card animate-fade-in";
+                card.style.animationDelay = `${index * 0.1}s`;
+                card.setAttribute("role", "listitem");
+                
+                card.innerHTML = `
+                    <div class="card-img">
+                        <img src="${program.imgSrc}" alt="${program.title} workout program" loading="lazy">
+                    </div>
+                    <div class="card-body">
+                        <span class="tag">${program.tag}</span>
+                        <h3 class="card-title">${program.title}</h3>
+                        <p class="card-desc">${program.desc}</p>
+                        <button class="btn-select" data-url="${program.url}" aria-label="Select ${program.title} program">
+                            Select Program
+                        </button>
+                    </div>
+                `;
+                
+                const btn = card.querySelector(".btn-select");
+                btn.addEventListener("click", function() {
+                    const url = this.getAttribute("data-url");
+                    window.location.href = url;
+                });
+                
+                grid.appendChild(card);
+            });
+        }
+
+        document.querySelectorAll(".filter-btn").forEach(btn => {
+            btn.addEventListener("click", function() {
+                document.querySelectorAll(".filter-btn").forEach(b => {
+                    b.classList.remove("active");
+                    b.setAttribute("aria-pressed", "false");
+                });
+                this.classList.add("active");
+                this.setAttribute("aria-pressed", "true");
+                
+                const filter = this.getAttribute("data-filter");
+                renderPrograms(filter);
+            });
+        });
+
+        renderPrograms();
+    </script>
+</body>
+</html>

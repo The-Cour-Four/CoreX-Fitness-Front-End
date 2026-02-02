@@ -1,0 +1,229 @@
+.profile-menu {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    position: absolute;
+    right: 0;
+    top: 100%;
+    margin-top: 10px;
+    background-color: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    min-width: 180px;
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--border-color);
+    transition: var(--transition-fast);
+    z-index: 1000;
+    list-style: none;
+    padding: 8px 0;
+}
+
+.profile-menu:hover .dropdown,
+.dropdown.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown li a {
+    display: block;
+    padding: 12px 20px;
+    color: var(--text-primary);
+    transition: var(--transition-fast);
+}
+
+.dropdown li a:hover {
+    background-color: var(--primary-light);
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.bmi-page {
+    padding: 20px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.bmi-calculator {
+    color: var(--primary);
+    text-align: center;
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 40px;
+}
+
+.bmi-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.5fr;
+    gap: 30px;
+    align-items: start;
+}
+
+.bmi-form {
+    padding: 30px;
+}
+
+.bmi-calc {
+    color: var(--primary);
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+}
+
+.form-help {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 5px;
+}
+
+.bmi-result {
+    padding: 30px;
+    text-align: center;
+}
+
+.bmi-result-title {
+    color: var(--primary);
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.bmi-output {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.bmi-value {
+    font-size: 4rem;
+    font-weight: 800;
+    color: var(--primary);
+    line-height: 1;
+}
+
+.bmi-category {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+.bmi-scale {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+    margin-top: 20px;
+}
+
+.scale-item {
+    padding: 10px 5px;
+    border-radius: var(--radius-sm);
+    text-align: center;
+}
+
+.scale-item .scale-range {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.scale-item .scale-label {
+    display: block;
+    font-size: 0.7rem;
+    margin-top: 3px;
+    opacity: 0.9;
+}
+
+.scale-item.underweight {
+    background-color: #3b82f6;
+    color: white;
+}
+
+.scale-item.normal {
+    background-color: #10b981;
+    color: white;
+}
+
+.scale-item.overweight {
+    background-color: #f59e0b;
+    color: white;
+}
+
+.scale-item.obese {
+    background-color: #ef4444;
+    color: white;
+}
+
+.bmi-category.underweight { color: #3b82f6; }
+.bmi-category.normal { color: #10b981; }
+.bmi-category.overweight { color: #f59e0b; }
+.bmi-category.obese { color: #ef4444; }
+
+.bmi-chart {
+    padding: 20px;
+}
+
+.bmi-chart h3 {
+    color: var(--primary);
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.bmi-chart img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-md);
+}
+
+@media screen and (max-width: 1024px) {
+    .bmi-container {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .bmi-chart {
+        grid-column: span 2;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .bmi-page {
+        padding: 15px;
+    }
+    
+    .bmi-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .bmi-chart {
+        grid-column: span 1;
+    }
+    
+    .bmi-scale {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .bmi-value {
+        font-size: 3rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .bmi-form,
+    .bmi-result {
+        padding: 20px;
+    }
+    
+    .bmi-scale {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+    
+    .scale-item {
+        padding: 8px;
+    }
+}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="CoreX Fitness - Your personal fitness companion. Login to access your workout plans, track progress, and achieve your fitness goals.">
+    <meta name="theme-color" content="#3aa7ff">
+    <title>CoreX Fitness - Login</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="shared/common.css">
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+    <div class="toast-container" role="alert" aria-live="polite"></div>
+
+    <div class="loading-overlay" aria-hidden="true">
+        <div class="spinner"></div>
+    </div>
+
+    <main class="login-page animate-fade-in">
+        <!-- Verification success banner (hidden by default) -->
+        <div class="verification-banner" id="verificationBanner" style="display: none;">
+            <span class="banner-icon">✅</span>
+            <span class="banner-text">Email verified successfully! You can now log in.</span>
+        </div>
+
+        <h1>Welcome to CoreX Fitness</h1>
+
+        <form id="login-form" action="/login" method="post" novalidate>
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter your Username" required
+                    autocomplete="username" aria-describedby="username-error">
+                <span id="username-error" class="field-error" aria-live="polite"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your Email" required autocomplete="email"
+                    aria-describedby="email-error">
+                <span id="email-error" class="field-error" aria-live="polite"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <div class="password-wrapper">
+                    <input type="password" id="password" name="password" placeholder="Enter your Password" required
+                        autocomplete="current-password" aria-describedby="password-error">
+                    <button type="button" class="toggle-password" aria-label="Show password">
+                        <span class="eye-icon">👁</span>
+                    </button>
+                </div>
+                <span id="password-error" class="field-error" aria-live="polite"></span>
+            </div>
+
+            <button type="submit" class="btn-submit">
+                <span class="btn-text">Login</span>
+                <span class="btn-loader spinner hidden"></span>
+            </button>
+        </form>
+
+        <div class="form-links">
+            <a href="Forget_Password_Page/Forget_Password_Page.html">Forgot Password?</a>
+            <a href="Registration_Page.html">Don't Have an Account Yet? Register</a>
+        </div>
+
+        <div class="theme-toggle-wrapper">
+            <button class="theme-toggle" aria-label="Toggle dark/light mode">
+                <span class="icon-sun">☀️</span>
+                <span class="icon-moon">🌙</span>
+            </button>
+        </div>
+    </main>
+
+    <script src="shared/common.js"></script>
+    <script src="login.js"></script>
+    <script>
+        // Check for verification status in URL
+        (function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const status = urlParams.get('status');
+
+            if (status === 'verified') {
+                const banner = document.getElementById('verificationBanner');
+                banner.style.display = 'flex';
+
+                // Show toast notification
+                if (typeof Toast !== 'undefined') {
+                    Toast.success('Email verified successfully! You can now log in. 🎉');
+                }
+
+                // Clean URL without reloading
+                window.history.replaceState({}, document.title, window.location.pathname);
+            }
+        })();
+    </script>
+</body>
+
+</html>

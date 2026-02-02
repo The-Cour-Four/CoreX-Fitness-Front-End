@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CoreX Fitness AI Exercise Planner - Get personalized workout recommendations based on your fitness goals">
+    <meta name="theme-color" content="#3aa7ff">
+    <title>AI Exercise Planner - CoreX Fitness</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../shared/common.css">
+    <link rel="stylesheet" href="exercise.css">
+</head>
+<body>
+    <div class="nav-overlay" aria-hidden="true"></div>
+    
+    <header>
+        <a href="../Home_and_Choose_Us_Page/index.html" class="logo">CoreX Fitness</a>
+        
+        <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        
+        <nav role="navigation" aria-label="Main navigation">
+            <ul>
+                <li><a href="../Home_and_Choose_Us_Page/index.html">Home</a></li>
+                <li><a href="../Home_and_Choose_Us_Page/index.html#choose-us">Why Us</a></li>
+                <li><a href="../Programs_Pages_new/index.html">Programs</a></li>
+                <li><a href="../BMI_Calculator_Page/BMI_Calculator_Page.html">BMI Calculator</a></li>
+                <li><a href="chat.html">AI Coach</a></li>
+                <li><a href="exercise.html" style="color: #3b82f6;">Exercise Planner</a></li>
+                <li><a href="motivation.html">Motivation</a></li>
+            </ul>
+        </nav>
+        
+        <div class="header-controls">
+            <button class="theme-toggle" aria-label="Toggle dark/light mode">
+                <span class="icon-sun">☀️</span>
+                <span class="icon-moon">🌙</span>
+            </button>
+
+            <div class="profile-menu">
+              <button class="profile-button" aria-label="Profile menu" aria-expanded="false">👤</button>
+              <ul class="dropdown" role="menu">
+                <li role="menuitem"><a href="../Profile_Page_New/index.html" aria-current="page">My Profile</a></li>
+                <li role="menuitem"><a href="../index.html">Log Out</a></li>
+              </ul>
+            </div>
+
+        </div>
+    </header>
+
+    <main class="exercise-page">
+        <div class="page-header" data-animate="fadeIn">
+            <h1>💪 AI Exercise Planner</h1>
+            <p>Get personalized workout recommendations based on your goals</p>
+        </div>
+
+        <!-- Selection Form -->
+        <div class="selection-card card" id="selectionCard" data-animate="fadeIn">
+            <h2>Tell us about your goals</h2>
+            
+            <div class="form-group">
+                <label>What's your fitness goal?</label>
+                <div class="option-buttons" id="goalOptions">
+                    <button class="option-btn" data-value="weight loss">
+                        <span class="option-icon">🔥</span>
+                        <span class="option-text">Weight Loss</span>
+                    </button>
+                    <button class="option-btn" data-value="muscle gain">
+                        <span class="option-icon">💪</span>
+                        <span class="option-text">Muscle Gain</span>
+                    </button>
+                    <button class="option-btn" data-value="endurance">
+                        <span class="option-icon">🏃</span>
+                        <span class="option-text">Endurance</span>
+                    </button>
+                    <button class="option-btn" data-value="flexibility">
+                        <span class="option-icon">🧘</span>
+                        <span class="option-text">Flexibility</span>
+                    </button>
+                    <button class="option-btn" data-value="general fitness">
+                        <span class="option-icon">⭐</span>
+                        <span class="option-text">General Fitness</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>What's your fitness level?</label>
+                <div class="option-buttons level-options" id="levelOptions">
+                    <button class="option-btn" data-value="beginner">
+                        <span class="option-icon">🌱</span>
+                        <span class="option-text">Beginner</span>
+                    </button>
+                    <button class="option-btn" data-value="intermediate">
+                        <span class="option-icon">🌿</span>
+                        <span class="option-text">Intermediate</span>
+                    </button>
+                    <button class="option-btn" data-value="advanced">
+                        <span class="option-icon">🌳</span>
+                        <span class="option-text">Advanced</span>
+                    </button>
+                </div>
+            </div>
+
+            <button class="btn btn-primary generate-btn" id="generateBtn" disabled>
+                <span class="btn-text">Generate My Plan</span>
+                <span class="btn-loader" style="display: none;">
+                    <span class="spinner"></span>
+                    Generating...
+                </span>
+            </button>
+        </div>
+
+        <!-- Results Section -->
+        <div class="results-section" id="resultsSection" style="display: none;">
+            <div class="results-header">
+                <h2>Your Personalized Exercise Plan</h2>
+                <button class="btn btn-secondary new-plan-btn" id="newPlanBtn">
+                    <span>🔄</span> Create New Plan
+                </button>
+            </div>
+
+            <div class="plan-summary card" id="planSummary">
+                <!-- Filled by JS -->
+            </div>
+
+            <div class="exercises-grid" id="exercisesGrid">
+                <!-- Exercise cards filled by JS -->
+            </div>
+
+            <div class="tips-section card" id="tipsSection">
+                <!-- Tips filled by JS -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <p>Creating your personalized plan...</p>
+        </div>
+    </div>
+
+    <script src="../shared/common.js"></script>
+    <script src="exercise.js"></script>
+</body>
+</html>
