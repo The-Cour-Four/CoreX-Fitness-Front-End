@@ -289,19 +289,18 @@ document.addEventListener('DOMContentLoaded', async () => {
         themeToggle.addEventListener('click', () => ThemeManager.toggle());
     }
 
-    // Gender-based routing logic
     try {
         if (window.Auth && typeof window.Auth.fetchUserInfo === 'function') {
             const user = await window.Auth.fetchUserInfo();
             if (user.gender === 2 || user.gender === '2' || (typeof user.gender === 'string' && user.gender.toLowerCase() === 'female')) {
-                // If not already in female frontend, redirect
-                if (!window.location.pathname.includes('/female/')) {
+                //if not already in female frontend, redirect
+                if (!window.location.pathname.includes('/female/') && !window.location.pathname.includes('Developers_Page')) {
                     const femalePath = '/female' + window.location.pathname;
                     window.location.replace(femalePath);
                     return;
                 }
             } else {
-                // If in female frontend but user is not female, redirect to main
+                //if in female frontend but user is not female, redirect to main
                 if (window.location.pathname.includes('/female/')) {
                     const mainPath = window.location.pathname.replace('/female', '');
                     window.location.replace(mainPath);
@@ -310,7 +309,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
         }
     } catch (e) {
-        // If user info cannot be fetched, continue as normal
+        //if user info cannot be fetched, continue as normal
     }
 
     const mainContent = document.querySelector('main') || document.querySelector('body > *:not(header):not(script):not(style)');

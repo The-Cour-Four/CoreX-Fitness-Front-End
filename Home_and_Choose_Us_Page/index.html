@@ -1,151 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="CoreX Fitness - Keep your body fit and strong. Professional workout programs, nutrition plans, and progress tracking.">
-        <meta name="theme-color" content="#3aa7ff">
-        <title>CoreX Fitness - Home</title>
-        
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-        
-        <link rel="stylesheet" href="../shared/common.css">
-        <link rel="stylesheet" href="index.css">
-    </head>
 
-    <body>
-        <div class="nav-overlay" aria-hidden="true"></div>
-        
-        <header>
-            <h1 class="main-title">CoreX Fitness</h1>
-            
-            <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="CoreX Fitness - Keep your body fit and strong. Professional workout programs, nutrition plans, and progress tracking.">
+    <meta name="theme-color" content="#3aa7ff">
+    <title>CoreX Fitness - Home</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="../shared/common.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="nav-overlay" aria-hidden="true"></div>
+
+    <header>
+        <h1 class="main-title">CoreX Fitness</h1>
+
+        <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav role="navigation" aria-label="Main navigation">
+            <ul>
+                <li><a href="#home" aria-current="page" style="color: #3b82f6;">Home</a></li>
+                <li><a href="#choose-us">Why Us</a></li>
+                <li><a href="../Programs_Pages_new/index.html">Programs</a></li>
+                <li><a href="../BMI_Calculator_Page/BMI_Calculator_Page.html">BMI Calculator</a></li>
+                <li><a href="../AI_Features/chat.html">AI Coach</a></li>
+                <li><a href="../AI_Features/exercise.html">Exercise Planner</a></li>
+                <li><a href="../AI_Features/motivation.html">Motivation</a></li>
+            </ul>
+        </nav>
+
+        <div class="header-controls">
+            <button class="theme-toggle" aria-label="Toggle dark/light mode">
+                <span class="icon-sun">☀️</span>
+                <span class="icon-moon">🌙</span>
             </button>
-            
-            <nav role="navigation" aria-label="Main navigation">
-                <ul>
-                    <li><a href="#home" aria-current="page" style="color: #3b82f6;">Home</a></li>
-                    <li><a href="#choose-us">Why Us</a></li>
-                    <li><a href="../Programs_Pages_new/index.html">Programs</a></li>
-                    <li><a href="../BMI_Calculator_Page/BMI_Calculator_Page.html">BMI Calculator</a></li>
-                    <li><a href="../AI_Features/chat.html">AI Coach</a></li>
-                    <li><a href="../AI_Features/exercise.html">Exercise Planner</a></li>
-                    <li><a href="../AI_Features/motivation.html">Motivation</a></li>
+
+            <div class="profile-menu">
+                <button class="profile-button" aria-label="Profile menu" aria-expanded="false">👤</button>
+                <ul class="dropdown" role="menu">
+                    <li role="menuitem"><a href="../Profile_Page_New/index.html" aria-current="page">My Profile</a></li>
+                    <li role="menuitem"><a href="../index.html">Log Out</a></li>
                 </ul>
-            </nav>
-            
-            <div class="header-controls">
-                <button class="theme-toggle" aria-label="Toggle dark/light mode">
-                    <span class="icon-sun">☀️</span>
-                    <span class="icon-moon">🌙</span>
-                </button>
-
-                <div class="profile-menu">
-                   <button class="profile-button" aria-label="Profile menu" aria-expanded="false">👤</button>
-                   <ul class="dropdown" role="menu">
-                      <li role="menuitem"><a href="../Profile_Page_New/index.html" aria-current="page">My Profile</a></li>
-                      <li role="menuitem"><a href="../index.html">Log Out</a></li>
-                   </ul>
-                </div>
-
             </div>
-        </header>
 
-        <main>
-            <section id="home" class="home" data-animate="fadeIn">
-                <div class="home-text">
-                    <h1 class="animate-slide-left">Welcome to CoreX Fitness</h1>
-                    <p class="subtitle animate-slide-left delay-1">Keep Your</p>
-                    <h2 class="animate-slide-left delay-2">Body Fit & Strong</h2>
-                    <p class="description animate-slide-left delay-3">In here we will help you to shape and build your ideal body and live your life to the fullest.</p>
-                    <a href="../Programs_Pages_new/index.html" class="btn btn-primary animate-slide-left delay-4">Start Your Journey</a>
-                </div>
+        </div>
+    </header>
 
-                <div class="hero-image animate-slide-right">   
-                    <img src="index.webp" alt="Fitness training hero image" loading="lazy">
-                </div>
-            </section>
-          
-            <section id="choose-us" class="choose-us">
-                <div class="hours-hero" data-animate="slideInLeft">
-                   <div class="hero-img" role="img" aria-label="Person working out"></div>
-                   <div class="opening-hours">
-                     <h3>Opening Hours</h3>
-                     <p>24/7</p>
-                   </div>
-                </div>
+    <main>
+        <section id="home" class="home" data-animate="fadeIn">
+            <div class="home-text">
+                <h1 class="animate-slide-left">Welcome to CoreX Fitness</h1>
+                <p class="subtitle animate-slide-left delay-1">Keep Your</p>
+                <h2 class="animate-slide-left delay-2">Body Fit & Strong</h2>
+                <p class="description animate-slide-left delay-3">In here we will help you to shape and build your ideal
+                    body and live your life to the fullest.</p>
+                <a href="../Programs_Pages_new/index.html" class="btn btn-primary animate-slide-left delay-4">Start Your
+                    Journey</a>
+            </div>
 
-                <div class="why-us" data-animate="slideInRight">
-                   <h2>Why Choose Us</h2>
-                   <p>Because your goals are our mission. We guide you, support you, and challenge you — step by step — until you win.</p>
+            <div class="hero-image animate-slide-right">
+                <img src="index.webp" alt="Fitness training hero image" loading="lazy">
+            </div>
+        </section>
 
-                   <div class="features">
-                      <div class="feature card">
-                          <span class="feature-icon">📋</span>
-                          <p>Structured workout programs</p>
-                      </div>
-                      <div class="feature card">
-                          <span class="feature-icon">🍽️</span>
-                          <p>Bulking & Cutting plans tailored to your body</p>
-                      </div>
-                      <div class="feature card">
-                          <span class="feature-icon">🎥</span>
-                          <p>Video training for every exercise step-by-step</p>
-                      </div>
-                      <div class="feature card">
-                          <span class="feature-icon">📈</span>
-                          <p>Continuous tracking to see your progress</p>
-                      </div>
-                   </div>
+        <section id="choose-us" class="choose-us">
+            <div class="hours-hero" data-animate="slideInLeft">
+                <div class="hero-img" role="img" aria-label="Person working out"></div>
+                <div class="opening-hours">
+                    <h3>Opening Hours</h3>
+                    <p>24/7</p>
                 </div>
-            </section>
+            </div>
 
-            <section class="program" data-animate="fadeIn">
-                <div class="program-content">
-                    <p class="program-label">Our Program</p>
-                    <h2>Build Your Best Body</h2>
-                    <a href="../Programs_Pages_new/index.html" class="btn btn-primary">Explore Programs</a>
-                </div>
-            </section>
-        </main>
-        
-        <footer>
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>CoreX Fitness</h4>
-                    <p>Your journey to a healthier, stronger you starts here.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="../Programs_Pages_new/index.html">Programs</a></li>
-                        <li><a href="../BMI_Calculator_Page/BMI_Calculator_Page.html">BMI Calculator</a></li>
-                        <li><a href="../AI_Features/chat.html">AI Coach</a></li>
-                        <li><a href="../AI_Features/exercise.html">AI Planner</a></li>
-                        <li><a href="../AI_Features/motivation.html">Motivation</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Connect</h4>
-                    <div class="social-links">
-                        <a href="#" aria-label="Facebook">📘</a>
-                        <a href="#" aria-label="Instagram">📸</a>
-                        <a href="#" aria-label="Twitter">🐦</a>
-                        <a href="#" aria-label="YouTube">🎬</a>
+            <div class="why-us" data-animate="slideInRight">
+                <h2>Why Choose Us</h2>
+                <p>Because your goals are our mission. We guide you, support you, and challenge you — step by step —
+                    until you win.</p>
+
+                <div class="features">
+                    <div class="feature card">
+                        <span class="feature-icon">📋</span>
+                        <p>Structured workout programs</p>
+                    </div>
+                    <div class="feature card">
+                        <span class="feature-icon">🍽️</span>
+                        <p>Bulking & Cutting plans tailored to your body</p>
+                    </div>
+                    <div class="feature card">
+                        <span class="feature-icon">🎥</span>
+                        <p>Video training for every exercise step-by-step</p>
+                    </div>
+                    <div class="feature card">
+                        <span class="feature-icon">📈</span>
+                        <p>Continuous tracking to see your progress</p>
                     </div>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 CoreX Fitness. All rights reserved.</p>
+        </section>
+
+        <section class="program" data-animate="fadeIn">
+            <div class="program-content">
+                <p class="program-label">Our Program</p>
+                <h2>Build Your Best Body</h2>
+                <a href="../Programs_Pages_new/index.html" class="btn btn-primary">Explore Programs</a>
             </div>
-        </footer>
-        
-        <script src="../shared/common.js"></script>
-    </body>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>CoreX Fitness</h4>
+                <p>Your journey to a healthier, stronger you starts here.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="../Programs_Pages_new/index.html">Programs</a></li>
+                    <li><a href="../BMI_Calculator_Page/BMI_Calculator_Page.html">BMI Calculator</a></li>
+                    <li><a href="../AI_Features/chat.html">AI Coach</a></li>
+                    <li><a href="../AI_Features/exercise.html">AI Planner</a></li>
+                    <li><a href="../AI_Features/motivation.html">Motivation</a></li>
+                </ul>
+            </div>
+            <div class="footer-section developers-section">
+                <h4><a href="../Developers_Page/index.html" style="text-decoration: underline; color: inherit;">About
+                        the
+                        Developers</a></h4>
+                <div class="developer-list">
+                    <div class="developer-item">
+                        <img src="../shared/developers/YousefAli.jpg" alt="Yousef Ali" class="dev-avatar">
+                        <div class="dev-info">
+                            <span class="dev-name">Yousef Ali</span>
+                            <span class="dev-headline">SWE Member @ IEEE NU | ASP .NET Developer | ML & NLP
+                                Engineer</span>
+                        </div>
+                    </div>
+                    <div class="developer-item">
+                        <img src="../shared/developers/MostafaAbdElahmied.jpg" alt="Mostafa Abd Elhamied"
+                            class="dev-avatar">
+                        <div class="dev-info">
+                            <span class="dev-name">Mostafa Abd Elhamied</span>
+                            <span class="dev-headline">Junior Teaching & Research Assistant | IT & CS at NU | AI, Data
+                                Analysis</span>
+                        </div>
+                    </div>
+                    <div class="developer-item">
+                        <img src="../shared/developers/SalahEldin.png" alt="Salah Eldin Mohamed" class="dev-avatar">
+                        <div class="dev-info">
+                            <span class="dev-name">Salah Eldin Mohamed</span>
+                            <span class="dev-headline">CS Student at NU | Software Engineer | Enthusiast in AI
+                                Development</span>
+                        </div>
+                    </div>
+                    <div class="developer-item">
+                        <img src="../shared/developers/MahmoudKhaled.jpg" alt="Mahmoud Khaled" class="dev-avatar">
+                        <div class="dev-info">
+                            <span class="dev-name">Mahmoud Khaled</span>
+                            <span class="dev-headline">Aspiring Software Developer | Sophomore Student at NU</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 CoreX Fitness. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../shared/common.js"></script>
+</body>
+
 </html>

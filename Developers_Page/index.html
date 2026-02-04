@@ -4,18 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="CoreX Fitness - Keep your body fit and strong. Professional workout programs, nutrition plans, and progress tracking.">
-    <meta name="theme-color" content="#ff4d8c">
-    <title>CoreX Fitness - Home</title>
+    <meta name="description" content="Meet the team behind CoreX Fitness.">
+    <meta name="theme-color" content="#3aa7ff">
+    <title>CoreX Fitness - About the Developers</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="../../shared/common.css">
-    <link rel="stylesheet" href="../female_theme.css">
+    <link rel="stylesheet" href="../shared/common.css">
     <link rel="stylesheet" href="index.css">
 </head>
 
@@ -23,7 +21,7 @@
     <div class="nav-overlay" aria-hidden="true"></div>
 
     <header>
-        <h1 class="main-title">CoreX Fitness</h1>
+        <a href="../Home_and_Choose_Us_Page/index.html" class="main-title">CoreX Fitness</a>
 
         <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
             <span></span>
@@ -33,8 +31,7 @@
 
         <nav role="navigation" aria-label="Main navigation">
             <ul>
-                <li><a href="#home" aria-current="page" style="color: #ff4d8c;">Home</a></li>
-                <li><a href="#choose-us">Why Us</a></li>
+                <li><a href="../Home_and_Choose_Us_Page/index.html">Home</a></li>
                 <li><a href="../Programs_Pages_new/index.html">Programs</a></li>
                 <li><a href="../BMI_Calculator_Page/BMI_Calculator_Page.html">BMI Calculator</a></li>
                 <li><a href="../AI_Features/chat.html">AI Coach</a></li>
@@ -52,73 +49,67 @@
             <div class="profile-menu">
                 <button class="profile-button" aria-label="Profile menu" aria-expanded="false">👤</button>
                 <ul class="dropdown" role="menu">
-                    <li role="menuitem"><a href="../Profile_Page_New/index.html" aria-current="page">My Profile</a></li>
-                    <li role="menuitem"><a href="../../index.html">Log Out</a></li>
+                    <li role="menuitem"><a href="../Profile_Page_New/index.html">My Profile</a></li>
+                    <li role="menuitem"><a href="../index.html">Log Out</a></li>
                 </ul>
             </div>
-
         </div>
     </header>
 
     <main>
-        <section id="home" class="home" data-animate="fadeIn">
-            <div class="home-text">
-                <h1 class="animate-slide-left">Welcome to CoreX Fitness</h1>
-                <p class="subtitle animate-slide-left delay-1">Keep Your</p>
-                <h2 class="animate-slide-left delay-2">Sculpt, Tone & Empower</h2>
-                <p class="description animate-slide-left delay-3">Join our community of strong women building their
-                    ideal bodies and living life to the fullest.</p>
-                <a href="../Programs_Pages_new/index.html" class="btn btn-primary animate-slide-left delay-4">Start Your
-                    Journey</a>
-            </div>
+        <div class="container">
+            <h1 class="page-title animate-slide-left">Meet Our Developers</h1>
+            <p class="page-subtitle animate-slide-left delay-1">The minds behind CoreX Fitness</p>
 
-            <div class="hero-image animate-slide-right">
-                <img src="female_hero.png" alt="Female fitness training hero image" loading="lazy">
-            </div>
-        </section>
-
-        <section id="choose-us" class="choose-us">
-            <div class="hours-hero" data-animate="slideInLeft">
-                <div class="hero-img" role="img" aria-label="Person working out"></div>
-                <div class="opening-hours">
-                    <h3>Opening Hours</h3>
-                    <p>24/7</p>
-                </div>
-            </div>
-
-            <div class="why-us" data-animate="slideInRight">
-                <h2>Why Choose Us</h2>
-                <p>Because your goals are our mission. We guide you, support you, and challenge you — step by step —
-                    until you win.</p>
-
-                <div class="features">
-                    <div class="feature card">
-                        <span class="feature-icon">📋</span>
-                        <p>Structured workout programs</p>
+            <div class="developers-grid">
+                <div class="dev-card animate-fade-in delay-2">
+                    <div class="dev-img-container">
+                        <img src="../shared/developers/YousefAli.jpg" alt="Yousef Ali" loading="lazy">
                     </div>
-                    <div class="feature card">
-                        <span class="feature-icon">🍽️</span>
-                        <p>Bulking & Cutting plans tailored to your body</p>
-                    </div>
-                    <div class="feature card">
-                        <span class="feature-icon">🎥</span>
-                        <p>Video training for every exercise step-by-step</p>
-                    </div>
-                    <div class="feature card">
-                        <span class="feature-icon">📈</span>
-                        <p>Continuous tracking to see your progress</p>
+                    <div class="dev-content">
+                        <h3>Yousef Ali</h3>
+                        <p class="dev-headline">SWE Member @ IEEE NU | ASP .NET Developer | ML & NLP Engineer | Software
+                            Engineering & AI/Machine Learning Student @ Nile University | Google Developer Groups & ITI
+                            Certified</p>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <section class="program" data-animate="fadeIn">
-            <div class="program-content">
-                <p class="program-label">Our Program</p>
-                <h2>Sculpt Your Best Self</h2>
-                <a href="../Programs_Pages_new/index.html" class="btn btn-primary">Explore Programs</a>
+                <div class="dev-card animate-fade-in delay-3">
+                    <div class="dev-img-container">
+                        <img src="../shared/developers/MostafaAbdElahmied.jpg" alt="Mostafa Abd Elhamied"
+                            loading="lazy">
+                    </div>
+                    <div class="dev-content">
+                        <h3>Mostafa Abd Elhamied</h3>
+                        <p class="dev-headline">Junior Teaching & Research Assistant | Information Technology and
+                            Computer Science at NU | Head HR IEEE NU | AI, Data Analysis Focus | Arduino & Embedded
+                            Systems Developer | Python & Java Programmer | NTI Certified</p>
+                    </div>
+                </div>
+
+                <div class="dev-card animate-fade-in delay-4">
+                    <div class="dev-img-container">
+                        <img src="../shared/developers/SalahEldin.png" alt="Salah Eldin Mohamed" loading="lazy">
+                    </div>
+                    <div class="dev-content">
+                        <h3>Salah Eldin Mohamed</h3>
+                        <p class="dev-headline">Computer Science Student at Nile University | Software Engineer |
+                            Enthusiast in AI Development and Problem Solving</p>
+                    </div>
+                </div>
+
+                <div class="dev-card animate-fade-in delay-5">
+                    <div class="dev-img-container">
+                        <img src="../shared/developers/MahmoudKhaled.jpg" alt="Mahmoud Khaled" loading="lazy">
+                    </div>
+                    <div class="dev-content">
+                        <h3>Mahmoud Khaled</h3>
+                        <p class="dev-headline">Aspiring Software Developer| Sophomore Student at Nile University |
+                            Seeking Internships</p>
+                    </div>
+                </div>
             </div>
-        </section>
+        </div>
     </main>
 
     <footer>
@@ -130,21 +121,18 @@
             <div class="footer-section">
                 <h4>Quick Links</h4>
                 <ul>
-                    <li><a href="#home">Home</a></li>
+                    <li><a href="../Home_and_Choose_Us_Page/index.html">Home</a></li>
                     <li><a href="../Programs_Pages_new/index.html">Programs</a></li>
                     <li><a href="../BMI_Calculator_Page/BMI_Calculator_Page.html">BMI Calculator</a></li>
                     <li><a href="../AI_Features/chat.html">AI Coach</a></li>
                     <li><a href="../AI_Features/exercise.html">AI Planner</a></li>
-                    <li><a href="../AI_Features/motivation.html">Motivation</a></li>
                 </ul>
             </div>
             <div class="footer-section developers-section">
-                <h4><a href="../../Developers_Page/index.html" style="text-decoration: underline; color: inherit;">About
-                        the
-                        Developers</a></h4>
+                <h4>About the Developers</h4>
                 <div class="developer-list">
                     <div class="developer-item">
-                        <img src="../../shared/developers/YousefAli.jpg" alt="Yousef Ali" class="dev-avatar">
+                        <img src="../shared/developers/YousefAli.jpg" alt="Yousef Ali" class="dev-avatar">
                         <div class="dev-info">
                             <span class="dev-name">Yousef Ali</span>
                             <span class="dev-headline">SWE Member @ IEEE NU | ASP .NET Developer | ML & NLP
@@ -152,7 +140,7 @@
                         </div>
                     </div>
                     <div class="developer-item">
-                        <img src="../../shared/developers/MostafaAbdElahmied.jpg" alt="Mostafa Abd Elhamied"
+                        <img src="../shared/developers/MostafaAbdElahmied.jpg" alt="Mostafa Abd Elhamied"
                             class="dev-avatar">
                         <div class="dev-info">
                             <span class="dev-name">Mostafa Abd Elhamied</span>
@@ -161,7 +149,7 @@
                         </div>
                     </div>
                     <div class="developer-item">
-                        <img src="../../shared/developers/SalahEldin.png" alt="Salah Eldin Mohamed" class="dev-avatar">
+                        <img src="../shared/developers/SalahEldin.png" alt="Salah Eldin Mohamed" class="dev-avatar">
                         <div class="dev-info">
                             <span class="dev-name">Salah Eldin Mohamed</span>
                             <span class="dev-headline">CS Student at NU | Software Engineer | Enthusiast in AI
@@ -169,10 +157,10 @@
                         </div>
                     </div>
                     <div class="developer-item">
-                        <img src="../../shared/developers/MahmoudKhaled.jpg" alt="Mahmoud Khaled" class="dev-avatar">
+                        <img src="../shared/developers/MahmoudKhaled.jpg" alt="Mahmoud Khaled" class="dev-avatar">
                         <div class="dev-info">
                             <span class="dev-name">Mahmoud Khaled</span>
-                            <span class="dev-headline">Aspiring Software Developer | Junior Student at NU</span>
+                            <span class="dev-headline">Aspiring Software Developer | Sophomore Student at NU</span>
                         </div>
                     </div>
                 </div>
@@ -183,7 +171,7 @@
         </div>
     </footer>
 
-    <script src="../../shared/common.js"></script>
+    <script src="../shared/common.js"></script>
 </body>
 
 </html>
